@@ -864,8 +864,8 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1810,
-        "y": 280,
+        "x": 2410,
+        "y": 1020,
         "wires": []
     },
     {
@@ -1224,14 +1224,14 @@
         "id": "ed4ec96ac55fa0f9",
         "type": "function",
         "z": "df2ec36c3dbdb923",
-        "name": "check for door",
-        "func": "if (msg.payload.includes(\"door\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "name": "check for opreste",
+        "func": "if (msg.payload.includes(\"opreste\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
+        "x": 850,
         "y": 900,
         "wires": [
             [
@@ -1271,8 +1271,8 @@
         "id": "36fb16ad223ccf27",
         "type": "function",
         "z": "df2ec36c3dbdb923",
-        "name": "trimite door poarta",
-        "func": "msg.payload=\"receptionat door poarta\"\n\nreturn msg;",
+        "name": "trimite stop poarta",
+        "func": "msg.payload=\"receptionat stop poarta\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1340,15 +1340,21 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
-        "y": 480,
+        "x": 360,
+        "y": 1080,
         "wires": [
             [
                 "a053c03faf03794d",
                 "9a723ae4b3bf10b0",
                 "80e25fa808528044",
                 "a846b459c3c16e22",
-                "ed4ec96ac55fa0f9"
+                "ed4ec96ac55fa0f9",
+                "686e557e5d07a364",
+                "620b6b83b07c2d48",
+                "976b3456a69188b5",
+                "4f7cd27c6d3ffa00",
+                "bf38a4f606393ebc",
+                "245261643ca98294"
             ]
         ]
     },
@@ -1415,8 +1421,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1560,
-        "y": 320,
+        "x": 2160,
+        "y": 1060,
         "wires": [
             [
                 "d0cf782f5af037df"
@@ -1459,8 +1465,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1310,
-        "y": 320,
+        "x": 1910,
+        "y": 1060,
         "wires": [
             [
                 "0fc090f09f57118f",
@@ -1505,6 +1511,678 @@
         "info": "",
         "x": 860,
         "y": 960,
+        "wires": []
+    },
+    {
+        "id": "509bedb2d992c08d",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay1",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "3250fbdde60e7d95",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay2",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "b85666393868e4b6",
+        "type": "trigger",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1320,
+        "y": 1040,
+        "wires": [
+            [
+                "509bedb2d992c08d"
+            ]
+        ]
+    },
+    {
+        "id": "a45c3168ce275ab2",
+        "type": "trigger",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1320,
+        "y": 1140,
+        "wires": [
+            [
+                "3250fbdde60e7d95"
+            ]
+        ]
+    },
+    {
+        "id": "66c47bbc596fb60e",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite inchide poarta",
+        "func": "msg.payload=\"receptionat inchide poarta secundara\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 1080,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "686e557e5d07a364",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for open",
+        "func": "if (msg.payload.includes(\"open\"))\n{\n    msg.payload = true;\n} else\n{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1040,
+        "wires": [
+            [
+                "46a1e7ad2c260b33"
+            ]
+        ]
+    },
+    {
+        "id": "620b6b83b07c2d48",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for close",
+        "func": "if (msg.payload.includes(\"inchide\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1140,
+        "wires": [
+            [
+                "5e27a335d9168dab"
+            ]
+        ]
+    },
+    {
+        "id": "976b3456a69188b5",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for toggle",
+        "func": "if (msg.payload.includes(\"toggle\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1240,
+        "wires": [
+            [
+                "6f39eddaf2a5fedd"
+            ]
+        ]
+    },
+    {
+        "id": "0945cea28a1f90ef",
+        "type": "trigger",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1320,
+        "y": 1240,
+        "wires": [
+            [
+                "4ab00987d1d73ef3"
+            ]
+        ]
+    },
+    {
+        "id": "801262b2d860f68b",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite inchide poarta",
+        "func": "msg.payload =\"receptionat trigger poarta secundara\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 1180,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "4ab00987d1d73ef3",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay3",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "46a1e7ad2c260b33",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1030,
+        "y": 1040,
+        "wires": [
+            [
+                "b85666393868e4b6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5e27a335d9168dab",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1050,
+        "y": 1140,
+        "wires": [
+            [
+                "66c47bbc596fb60e",
+                "a45c3168ce275ab2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6f39eddaf2a5fedd",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1030,
+        "y": 1240,
+        "wires": [
+            [
+                "801262b2d860f68b",
+                "0945cea28a1f90ef"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4f7cd27c6d3ffa00",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for stop",
+        "func": "if (msg.payload.includes(\"stop\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1360,
+        "wires": [
+            [
+                "0a802d2aad5e123b"
+            ]
+        ]
+    },
+    {
+        "id": "0a802d2aad5e123b",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1030,
+        "y": 1360,
+        "wires": [
+            [
+                "a0ca8090d8ac6074",
+                "7b842371a2d53f30"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a0ca8090d8ac6074",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite stop poarta",
+        "func": "msg.payload =\"receptionat stop poarta secundara\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 1300,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "7b842371a2d53f30",
+        "type": "trigger",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1320,
+        "y": 1360,
+        "wires": [
+            [
+                "2bc3c26103f2ab58"
+            ]
+        ]
+    },
+    {
+        "id": "2bc3c26103f2ab58",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay4",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "bf38a4f606393ebc",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for aprinde lumini",
+        "func": "if (msg.payload.includes(\"aprinde lumini\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1480,
+        "wires": [
+            [
+                "d919bd96469b4490"
+            ]
+        ]
+    },
+    {
+        "id": "d919bd96469b4490",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1070,
+        "y": 1480,
+        "wires": [
+            [
+                "38e0f60ea9bcd5e8",
+                "108e6c8007632f15"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "38e0f60ea9bcd5e8",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite aprinde lumini poarta",
+        "func": "msg.payload =\"receptionat aprinde lumini poarta secundara\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1420,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "108e6c8007632f15",
+        "type": "trigger",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1320,
+        "y": 1480,
+        "wires": [
+            [
+                "04a1a75c5045da1d",
+                "3b4b3c34c18585a2"
+            ]
+        ]
+    },
+    {
+        "id": "04a1a75c5045da1d",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay5",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "3b4b3c34c18585a2",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay6",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "245261643ca98294",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for stinge lumini",
+        "func": "if (msg.payload.includes(\"stinge lumini\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 1620,
+        "wires": [
+            [
+                "515e55139cac216b"
+            ]
+        ]
+    },
+    {
+        "id": "515e55139cac216b",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1070,
+        "y": 1620,
+        "wires": [
+            [
+                "5215dcf07a12ae2e",
+                "8132e35f16fa19f1"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5215dcf07a12ae2e",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite  stingelumini poarta",
+        "func": "msg.payload =\"receptionat stinge lumini poarta secundara\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 1560,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "8132e35f16fa19f1",
+        "type": "trigger",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1320,
+        "y": 1620,
+        "wires": [
+            [
+                "09e053e23f7e00e2",
+                "82757a51c2f0127c"
+            ]
+        ]
+    },
+    {
+        "id": "09e053e23f7e00e2",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay5",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "82757a51c2f0127c",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay6",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 1680,
         "wires": []
     },
     {
