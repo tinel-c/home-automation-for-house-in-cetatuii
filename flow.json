@@ -1390,7 +1390,7 @@
         "type": "function",
         "z": "df2ec36c3dbdb923",
         "name": "trimite help text",
-        "func": "msg.payload=\"Commenzi suportate: \\n poarta: deschide / inchide / trigger / door \\n\"\n\nreturn msg;",
+        "func": "msg.payload=\"Commenzi suportate: \\n poarta principala: deschide / inchide / trigger / opreste \\n \\\n                                 \\n poarta secundara: open / close / toggle / stop \\n\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
