@@ -209,6 +209,17 @@
         "className": ""
     },
     {
+        "id": "506ab0719d70e306",
+        "type": "ui_group",
+        "name": "Automatizare poarta mica",
+        "tab": "d8f9da260f68b17a",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "2484df462203f0fa",
         "type": "mqtt in",
         "z": "1443ac5c69d1a2ac",
@@ -1759,7 +1770,8 @@
         "y": 1040,
         "wires": [
             [
-                "b85666393868e4b6"
+                "b85666393868e4b6",
+                "e6cbd58da9ab5dc6"
             ],
             []
         ]
@@ -2184,6 +2196,25 @@
         "x": 1550,
         "y": 1680,
         "wires": []
+    },
+    {
+        "id": "e6cbd58da9ab5dc6",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite deschide poarta",
+        "func": "msg.payload =\"receptionat deschide poarta secundara\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 960,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
     },
     {
         "id": "1b6d42f41f565178",
@@ -3167,7 +3198,7 @@
         "name": "",
         "label": "Deschide",
         "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
+        "group": "506ab0719d70e306",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -3240,7 +3271,7 @@
         "name": "",
         "label": "Inchide",
         "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
+        "group": "506ab0719d70e306",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -3389,7 +3420,7 @@
         "name": "",
         "label": "Trigger",
         "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
+        "group": "506ab0719d70e306",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -3500,7 +3531,7 @@
         "name": "",
         "label": "Stop",
         "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
+        "group": "506ab0719d70e306",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -3631,7 +3662,7 @@
         "name": "",
         "label": "Left light",
         "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
+        "group": "506ab0719d70e306",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -3742,7 +3773,7 @@
         "name": "",
         "label": "Right light",
         "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
+        "group": "506ab0719d70e306",
         "order": 0,
         "width": 0,
         "height": 0,
