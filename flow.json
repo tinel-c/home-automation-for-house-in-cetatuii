@@ -1642,7 +1642,7 @@
         "type": "function",
         "z": "df2ec36c3dbdb923",
         "name": "check for close",
-        "func": "if (msg.payload.includes(\"inchide\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "func": "if (msg.payload.includes(\"close\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
