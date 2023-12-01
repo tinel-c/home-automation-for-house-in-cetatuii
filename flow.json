@@ -343,7 +343,7 @@
         "y": 300,
         "wires": [
             [
-                "aa1873314110279c"
+                "5312798480912252"
             ]
         ]
     },
@@ -492,7 +492,7 @@
         "y": 360,
         "wires": [
             [
-                "efe37bcfe95ea441"
+                "22fa284dcf61e365"
             ]
         ]
     },
@@ -603,7 +603,7 @@
         "y": 420,
         "wires": [
             [
-                "24bfd712263b5c13"
+                "c2cfc935cf8a17d2"
             ]
         ]
     },
@@ -668,10 +668,10 @@
         "type": "trigger",
         "z": "1443ac5c69d1a2ac",
         "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
         "duration": "1",
         "extend": false,
         "overrideDelay": false,
@@ -685,6 +685,81 @@
         "wires": [
             [
                 "0211c22715b51fc4"
+            ]
+        ]
+    },
+    {
+        "id": "5312798480912252",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 300,
+        "wires": [
+            [
+                "aa1873314110279c"
+            ]
+        ]
+    },
+    {
+        "id": "22fa284dcf61e365",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 360,
+        "wires": [
+            [
+                "efe37bcfe95ea441"
+            ]
+        ]
+    },
+    {
+        "id": "c2cfc935cf8a17d2",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 420,
+        "wires": [
+            [
+                "24bfd712263b5c13"
             ]
         ]
     },
@@ -3543,11 +3618,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 480,
         "y": 100,
         "wires": [
             [
-                "de3a0dd5118ced7b"
+                "1f28e9f3d150843e"
             ]
         ]
     },
@@ -3616,11 +3691,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 480,
         "y": 160,
         "wires": [
             [
-                "57285d1cc57fa4d8"
+                "e7be816ec7b4639c"
             ]
         ]
     },
@@ -3689,11 +3764,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 480,
         "y": 220,
         "wires": [
             [
-                "fb063873ee362e62"
+                "b03d1992d272fe1e"
             ]
         ]
     },
@@ -3762,11 +3837,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 670,
+        "x": 470,
         "y": 280,
         "wires": [
             [
-                "f938beb2013f4347"
+                "6a404fdcf72eac3c"
             ]
         ]
     },
@@ -3855,11 +3930,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 480,
         "y": 400,
         "wires": [
             [
-                "85fcde512f4b4b9e"
+                "96bf08e1bdbd4252"
             ]
         ]
     },
@@ -3928,11 +4003,11 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 480,
         "y": 460,
         "wires": [
             [
-                "0f0fb557876f4b2e"
+                "8dd870237be46a1c"
             ]
         ]
     },
@@ -3953,5 +4028,155 @@
         "x": 950,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "1f28e9f3d150843e",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "de3a0dd5118ced7b"
+            ]
+        ]
+    },
+    {
+        "id": "e7be816ec7b4639c",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "57285d1cc57fa4d8"
+            ]
+        ]
+    },
+    {
+        "id": "b03d1992d272fe1e",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 220,
+        "wires": [
+            [
+                "fb063873ee362e62"
+            ]
+        ]
+    },
+    {
+        "id": "6a404fdcf72eac3c",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 280,
+        "wires": [
+            [
+                "f938beb2013f4347"
+            ]
+        ]
+    },
+    {
+        "id": "96bf08e1bdbd4252",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "120",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "85fcde512f4b4b9e"
+            ]
+        ]
+    },
+    {
+        "id": "8dd870237be46a1c",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "120",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "0f0fb557876f4b2e"
+            ]
+        ]
     }
 ]
