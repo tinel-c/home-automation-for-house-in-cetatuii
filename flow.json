@@ -1539,7 +1539,7 @@
         "expiry": "",
         "broker": "73850d9f081d4c01",
         "x": 1550,
-        "y": 1040,
+        "y": 1140,
         "wires": []
     },
     {
@@ -1557,7 +1557,7 @@
         "expiry": "",
         "broker": "73850d9f081d4c01",
         "x": 1550,
-        "y": 1140,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1581,7 +1581,7 @@
         "y": 1040,
         "wires": [
             [
-                "509bedb2d992c08d"
+                "3250fbdde60e7d95"
             ]
         ]
     },
@@ -1606,7 +1606,7 @@
         "y": 1140,
         "wires": [
             [
-                "3250fbdde60e7d95"
+                "509bedb2d992c08d"
             ]
         ]
     },
@@ -1771,7 +1771,8 @@
         "wires": [
             [
                 "b85666393868e4b6",
-                "e6cbd58da9ab5dc6"
+                "e6cbd58da9ab5dc6",
+                "108e6c8007632f15"
             ],
             []
         ]
@@ -1799,7 +1800,8 @@
         "wires": [
             [
                 "66c47bbc596fb60e",
-                "a45c3168ce275ab2"
+                "a45c3168ce275ab2",
+                "108e6c8007632f15"
             ],
             []
         ]
@@ -1827,7 +1829,8 @@
         "wires": [
             [
                 "801262b2d860f68b",
-                "0945cea28a1f90ef"
+                "0945cea28a1f90ef",
+                "108e6c8007632f15"
             ],
             []
         ]
@@ -1874,7 +1877,8 @@
         "wires": [
             [
                 "a0ca8090d8ac6074",
-                "7b842371a2d53f30"
+                "7b842371a2d53f30",
+                "108e6c8007632f15"
             ],
             []
         ]
@@ -2016,7 +2020,7 @@
         "op2": "false",
         "op1type": "bool",
         "op2type": "bool",
-        "duration": "2",
+        "duration": "120",
         "extend": false,
         "overrideDelay": false,
         "units": "s",
@@ -2024,7 +2028,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1320,
+        "x": 1310,
         "y": 1480,
         "wires": [
             [
@@ -2111,7 +2115,8 @@
         "wires": [
             [
                 "5215dcf07a12ae2e",
-                "8132e35f16fa19f1"
+                "09e053e23f7e00e2",
+                "82757a51c2f0127c"
             ],
             []
         ]
@@ -2132,32 +2137,6 @@
         "wires": [
             [
                 "d01998593b99f2b9"
-            ]
-        ]
-    },
-    {
-        "id": "8132e35f16fa19f1",
-        "type": "trigger",
-        "z": "df2ec36c3dbdb923",
-        "name": "",
-        "op1": "true",
-        "op2": "false",
-        "op1type": "bool",
-        "op2type": "bool",
-        "duration": "2",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 1320,
-        "y": 1620,
-        "wires": [
-            [
-                "09e053e23f7e00e2",
-                "82757a51c2f0127c"
             ]
         ]
     },
