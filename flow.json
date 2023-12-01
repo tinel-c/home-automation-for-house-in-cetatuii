@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "ec1761727ca60cf2",
+        "type": "tab",
+        "label": "Power Garden",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "73850d9f081d4c01",
         "type": "mqtt-broker",
         "name": "mqtt local",
@@ -1465,7 +1473,8 @@
                 "976b3456a69188b5",
                 "4f7cd27c6d3ffa00",
                 "bf38a4f606393ebc",
-                "245261643ca98294"
+                "245261643ca98294",
+                "0a2aa4ef777c8cc0"
             ]
         ]
     },
@@ -2329,8 +2338,7 @@
         "y": 1140,
         "wires": [
             [
-                "509bedb2d992c08d",
-                "33ce92a4643ddad1"
+                "509bedb2d992c08d"
             ]
         ]
     },
@@ -2525,22 +2533,6 @@
         ]
     },
     {
-        "id": "33ce92a4643ddad1",
-        "type": "debug",
-        "z": "df2ec36c3dbdb923",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1980,
-        "y": 1200,
-        "wires": []
-    },
-    {
         "id": "db861b296757c8f1",
         "type": "change",
         "z": "df2ec36c3dbdb923",
@@ -2574,8 +2566,7 @@
         "y": 1040,
         "wires": [
             [
-                "3250fbdde60e7d95",
-                "33ce92a4643ddad1"
+                "3250fbdde60e7d95"
             ]
         ]
     },
@@ -2614,6 +2605,81 @@
         "wires": [
             [
                 "3b4b3c34c18585a2"
+            ]
+        ]
+    },
+    {
+        "id": "45c78b70b958877b",
+        "type": "comment",
+        "z": "df2ec36c3dbdb923",
+        "name": "Status outdoor",
+        "info": "",
+        "x": 840,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "0a2aa4ef777c8cc0",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for consum",
+        "func": "if (msg.payload.includes(\"consum\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 1780,
+        "wires": [
+            [
+                "72ae2a3c207aed66"
+            ]
+        ]
+    },
+    {
+        "id": "72ae2a3c207aed66",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1070,
+        "y": 1780,
+        "wires": [
+            [
+                "8d50197749f2c60c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8d50197749f2c60c",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite  stingelumini poarta",
+        "func": "msg.payload =\"receptionat status consum\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 1740,
+        "wires": [
+            [
+                "d01998593b99f2b9"
             ]
         ]
     },
@@ -4178,5 +4244,42 @@
                 "0f0fb557876f4b2e"
             ]
         ]
+    },
+    {
+        "id": "b34fb706c2f4d3b0",
+        "type": "mqtt in",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "topic": "tele/sonoffPower320D_afara/SENSOR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "d874ac9d7a31d7f7"
+            ]
+        ]
+    },
+    {
+        "id": "d874ac9d7a31d7f7",
+        "type": "debug",
+        "z": "ec1761727ca60cf2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 180,
+        "wires": []
     }
 ]
