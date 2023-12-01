@@ -3187,7 +3187,7 @@
         "y": 100,
         "wires": [
             [
-                "9078dcc9a362eb8a"
+                "b0e7b6fbd5b6ad29"
             ]
         ]
     },
@@ -3260,7 +3260,7 @@
         "y": 160,
         "wires": [
             [
-                "f9007464f29395b5"
+                "eacf87b424e3eb01"
             ]
         ]
     },
@@ -3317,82 +3317,6 @@
         "wires": []
     },
     {
-        "id": "f9007464f29395b5",
-        "type": "change",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 160,
-        "wires": [
-            [
-                "eacf87b424e3eb01"
-            ]
-        ]
-    },
-    {
-        "id": "9078dcc9a362eb8a",
-        "type": "change",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 100,
-        "wires": [
-            [
-                "b0e7b6fbd5b6ad29"
-            ]
-        ]
-    },
-    {
         "id": "f9e4e2328212a77c",
         "type": "mqtt in",
         "z": "402ae319d72eccf6",
@@ -3409,7 +3333,7 @@
         "y": 220,
         "wires": [
             [
-                "149ee902d202547c"
+                "d98c15c67766ce5d"
             ]
         ]
     },
@@ -3466,44 +3390,6 @@
         "wires": []
     },
     {
-        "id": "149ee902d202547c",
-        "type": "change",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 220,
-        "wires": [
-            [
-                "d98c15c67766ce5d"
-            ]
-        ]
-    },
-    {
         "id": "f723461ba2cccfde",
         "type": "mqtt in",
         "z": "402ae319d72eccf6",
@@ -3520,7 +3406,7 @@
         "y": 280,
         "wires": [
             [
-                "6902165ce12a342e"
+                "81107ae8e0893d37"
             ]
         ]
     },
@@ -3577,44 +3463,6 @@
         "wires": []
     },
     {
-        "id": "6902165ce12a342e",
-        "type": "change",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 280,
-        "wires": [
-            [
-                "81107ae8e0893d37"
-            ]
-        ]
-    },
-    {
         "id": "7df932c9b9323794",
         "type": "comment",
         "z": "402ae319d72eccf6",
@@ -3651,7 +3499,7 @@
         "y": 400,
         "wires": [
             [
-                "1268d4583c6e028d"
+                "888bdf10d859f5c5"
             ]
         ]
     },
@@ -3708,44 +3556,6 @@
         "wires": []
     },
     {
-        "id": "1268d4583c6e028d",
-        "type": "change",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 400,
-        "wires": [
-            [
-                "888bdf10d859f5c5"
-            ]
-        ]
-    },
-    {
         "id": "5da0c869e3f99ce6",
         "type": "mqtt in",
         "z": "402ae319d72eccf6",
@@ -3762,7 +3572,7 @@
         "y": 460,
         "wires": [
             [
-                "f2b6f2bc207e40ca"
+                "eece975f5a1bab3b"
             ]
         ]
     },
@@ -3817,43 +3627,5 @@
         "x": 950,
         "y": 460,
         "wires": []
-    },
-    {
-        "id": "f2b6f2bc207e40ca",
-        "type": "change",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 460,
-        "wires": [
-            [
-                "eece975f5a1bab3b"
-            ]
-        ]
     }
 ]
