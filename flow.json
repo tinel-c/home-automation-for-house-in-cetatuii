@@ -2032,8 +2032,8 @@
         "y": 1480,
         "wires": [
             [
-                "04a1a75c5045da1d",
-                "3b4b3c34c18585a2"
+                "960ed93d9499aae7",
+                "e3233f492b58c7a5"
             ]
         ]
     },
@@ -2051,7 +2051,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1790,
+        "x": 1870,
         "y": 1480,
         "wires": []
     },
@@ -2069,7 +2069,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1790,
+        "x": 1890,
         "y": 1540,
         "wires": []
     },
@@ -2215,7 +2215,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "from": "false",
-                "fromt": "num",
+                "fromt": "bool",
                 "to": "OFF",
                 "tot": "str"
             }
@@ -2254,7 +2254,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "from": "false",
-                "fromt": "num",
+                "fromt": "bool",
                 "to": "OFF",
                 "tot": "str"
             }
@@ -2292,7 +2292,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "from": "false",
-                "fromt": "num",
+                "fromt": "bool",
                 "to": "OFF",
                 "tot": "str"
             }
@@ -2330,7 +2330,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "from": "false",
-                "fromt": "num",
+                "fromt": "bool",
                 "to": "OFF",
                 "tot": "str"
             }
@@ -2340,10 +2340,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1520,
+        "x": 1560,
         "y": 1480,
         "wires": [
-            []
+            [
+                "04a1a75c5045da1d"
+            ]
         ]
     },
     {
@@ -2366,7 +2368,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "from": "false",
-                "fromt": "num",
+                "fromt": "bool",
                 "to": "OFF",
                 "tot": "str"
             }
@@ -2404,7 +2406,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "from": "false",
-                "fromt": "num",
+                "fromt": "bool",
                 "to": "OFF",
                 "tot": "str"
             }
@@ -2458,7 +2460,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "from": "false",
-                "fromt": "num",
+                "fromt": "bool",
                 "to": "OFF",
                 "tot": "str"
             }
@@ -2474,6 +2476,44 @@
             [
                 "3250fbdde60e7d95",
                 "33ce92a4643ddad1"
+            ]
+        ]
+    },
+    {
+        "id": "e3233f492b58c7a5",
+        "type": "change",
+        "z": "df2ec36c3dbdb923",
+        "name": "true to ON and false to OFF",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 1540,
+        "wires": [
+            [
+                "3b4b3c34c18585a2"
             ]
         ]
     },
