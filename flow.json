@@ -1715,7 +1715,7 @@
         "id": "801262b2d860f68b",
         "type": "function",
         "z": "df2ec36c3dbdb923",
-        "name": "trimite inchide poarta",
+        "name": "trimite trigger poarta",
         "func": "msg.payload =\"receptionat trigger poarta secundara\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
