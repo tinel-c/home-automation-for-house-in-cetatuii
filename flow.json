@@ -270,7 +270,7 @@
         "y": 240,
         "wires": [
             [
-                "0211c22715b51fc4"
+                "fc19d7cc774c78ae"
             ]
         ]
     },
@@ -288,7 +288,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1020,
+        "x": 1300,
         "y": 240,
         "wires": []
     },
@@ -361,7 +361,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1020,
+        "x": 1300,
         "y": 300,
         "wires": []
     },
@@ -510,7 +510,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1020,
+        "x": 1300,
         "y": 360,
         "wires": []
     },
@@ -621,7 +621,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1020,
+        "x": 1300,
         "y": 420,
         "wires": []
     },
@@ -660,6 +660,31 @@
         "wires": [
             [
                 "dbc028ae2932b242"
+            ]
+        ]
+    },
+    {
+        "id": "fc19d7cc774c78ae",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 240,
+        "wires": [
+            [
+                "0211c22715b51fc4"
             ]
         ]
     },
