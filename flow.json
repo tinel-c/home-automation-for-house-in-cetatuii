@@ -1476,8 +1476,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1910,
-        "y": 1060,
+        "x": 1950,
+        "y": 980,
         "wires": [
             [
                 "0fc090f09f57118f",
@@ -1556,7 +1556,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1550,
+        "x": 1790,
         "y": 1040,
         "wires": []
     },
@@ -1581,7 +1581,7 @@
         "y": 1040,
         "wires": [
             [
-                "3250fbdde60e7d95"
+                "db861b296757c8f1"
             ]
         ]
     },
@@ -2437,6 +2437,44 @@
         "x": 1980,
         "y": 1200,
         "wires": []
+    },
+    {
+        "id": "db861b296757c8f1",
+        "type": "change",
+        "z": "df2ec36c3dbdb923",
+        "name": "true to ON and false to OFF",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "num",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1540,
+        "y": 1040,
+        "wires": [
+            [
+                "3250fbdde60e7d95"
+            ]
+        ]
     },
     {
         "id": "1b6d42f41f565178",
