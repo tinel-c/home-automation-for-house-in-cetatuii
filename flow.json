@@ -4447,7 +4447,7 @@
         "type": "mqtt in",
         "z": "ec1761727ca60cf2",
         "name": "",
-        "topic": "stat/sonoffPower320D_afara/POWER3",
+        "topic": "stat/sonoffPower320D_afara/POWER",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "73850d9f081d4c01",
@@ -4468,7 +4468,7 @@
         "type": "mqtt out",
         "z": "ec1761727ca60cf2",
         "name": "",
-        "topic": "cmnd/sonoffPower320D_afara/POWER ",
+        "topic": "cmnd/sonoffPower320D_afara/Power",
         "qos": "2",
         "retain": "false",
         "respTopic": "",
@@ -4477,7 +4477,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1060,
+        "x": 1050,
         "y": 580,
         "wires": []
     }
