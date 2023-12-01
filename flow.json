@@ -4434,7 +4434,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 660,
+        "x": 920,
         "y": 580,
         "wires": [
             [
@@ -4447,7 +4447,7 @@
         "type": "mqtt in",
         "z": "ec1761727ca60cf2",
         "name": "",
-        "topic": "stat/sonoffPower320D_afara/Power",
+        "topic": "stat/sonoffPower320D_afara/POWER",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "73850d9f081d4c01",
@@ -4455,11 +4455,11 @@
         "rap": false,
         "rh": 0,
         "inputs": 0,
-        "x": 300,
+        "x": 310,
         "y": 580,
         "wires": [
             [
-                "554317472d5ed26e"
+                "ed6a0c97dfdae96a"
             ]
         ]
     },
@@ -4477,8 +4477,46 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1050,
+        "x": 1210,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "ed6a0c97dfdae96a",
+        "type": "change",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 580,
+        "wires": [
+            [
+                "554317472d5ed26e"
+            ]
+        ]
     }
 ]
