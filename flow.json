@@ -1485,7 +1485,8 @@
                 "4f7cd27c6d3ffa00",
                 "bf38a4f606393ebc",
                 "245261643ca98294",
-                "0a2aa4ef777c8cc0"
+                "0a2aa4ef777c8cc0",
+                "d7c283fc0b9a935b"
             ]
         ]
     },
@@ -2633,8 +2634,8 @@
         "id": "0a2aa4ef777c8cc0",
         "type": "function",
         "z": "df2ec36c3dbdb923",
-        "name": "check for consum",
-        "func": "if (msg.payload.includes(\"consum\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "name": "check for power on",
+        "func": "if (msg.payload.includes(\"power on\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2670,7 +2671,8 @@
         "y": 1780,
         "wires": [
             [
-                "8d50197749f2c60c"
+                "8d50197749f2c60c",
+                "f62f173fe52bfeee"
             ],
             []
         ]
@@ -2679,18 +2681,196 @@
         "id": "8d50197749f2c60c",
         "type": "function",
         "z": "df2ec36c3dbdb923",
-        "name": "trimite  stingelumini poarta",
-        "func": "msg.payload =\"receptionat status consum\"\n\nreturn msg;",
+        "name": "trimite powe on garden",
+        "func": "msg.payload =\"receptionat power on garden\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1330,
+        "x": 1320,
         "y": 1740,
         "wires": [
             [
                 "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "c1dfcffa729dce2a",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "cmnd/sonoffPower320D_afara/Power",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1810,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "d9af31705628493c",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "cmnd/sonoffPower320D_afara/Power",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1810,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "f62f173fe52bfeee",
+        "type": "change",
+        "z": "df2ec36c3dbdb923",
+        "name": "true to ON and false to OFF",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1480,
+        "y": 1780,
+        "wires": [
+            [
+                "c1dfcffa729dce2a"
+            ]
+        ]
+    },
+    {
+        "id": "d7c283fc0b9a935b",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for power off",
+        "func": "if (msg.payload.includes(\"power off\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1900,
+        "wires": [
+            [
+                "1d83f561f11465c9"
+            ]
+        ]
+    },
+    {
+        "id": "1d83f561f11465c9",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1050,
+        "y": 1900,
+        "wires": [
+            [
+                "898eb9ae6ce30732",
+                "a83c8c2b5c0549ff"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "898eb9ae6ce30732",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite power off garden",
+        "func": "msg.payload =\"receptionat power off garden\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 1860,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "a83c8c2b5c0549ff",
+        "type": "change",
+        "z": "df2ec36c3dbdb923",
+        "name": "true to ON and false to OFF",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1460,
+        "y": 1900,
+        "wires": [
+            [
+                "d9af31705628493c"
             ]
         ]
     },
@@ -4434,7 +4614,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 920,
+        "x": 720,
         "y": 580,
         "wires": [
             [
@@ -4459,7 +4639,6 @@
         "y": 580,
         "wires": [
             [
-                "bdf6d5bf73c18059",
                 "554317472d5ed26e"
             ]
         ]
@@ -4478,60 +4657,8 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1210,
+        "x": 1110,
         "y": 580,
-        "wires": []
-    },
-    {
-        "id": "ed6a0c97dfdae96a",
-        "type": "change",
-        "z": "ec1761727ca60cf2",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 800,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bdf6d5bf73c18059",
-        "type": "debug",
-        "z": "ec1761727ca60cf2",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 280,
         "wires": []
     }
 ]
