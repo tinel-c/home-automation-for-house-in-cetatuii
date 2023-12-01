@@ -4407,5 +4407,78 @@
         "x": 610,
         "y": 480,
         "wires": []
+    },
+    {
+        "id": "554317472d5ed26e",
+        "type": "ui_switch",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "label": "Garden Power",
+        "tooltip": "",
+        "group": "ad313602d86893b8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 660,
+        "y": 580,
+        "wires": [
+            [
+                "96c6547c0026458c"
+            ]
+        ]
+    },
+    {
+        "id": "85d5cb52b735663a",
+        "type": "mqtt in",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "topic": "stat/sonoffPower320D_afara/POWER3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 580,
+        "wires": [
+            [
+                "554317472d5ed26e"
+            ]
+        ]
+    },
+    {
+        "id": "96c6547c0026458c",
+        "type": "mqtt out",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "topic": "cmnd/sonoffPower320D_afara/POWER ",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1060,
+        "y": 580,
+        "wires": []
     }
 ]
