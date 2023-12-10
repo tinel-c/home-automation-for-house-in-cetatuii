@@ -4960,14 +4960,14 @@
         "id": "334132eacf830096",
         "type": "function",
         "z": "78a53e75516b910d",
-        "name": "function 1",
-        "func": "msg.payload = \"Power status:\" + msg.payload;\nreturn msg;",
+        "name": "Add message power status",
+        "func": "msg.payload = \"Power status: \" + msg.payload;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 640,
+        "x": 700,
         "y": 380,
         "wires": [
             [
