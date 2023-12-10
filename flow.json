@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "78a53e75516b910d",
+        "type": "tab",
+        "label": "Main Gate",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "73850d9f081d4c01",
         "type": "mqtt-broker",
         "name": "mqtt local",
@@ -219,7 +227,7 @@
     {
         "id": "506ab0719d70e306",
         "type": "ui_group",
-        "name": "Automatizare poarta mica",
+        "name": "Automatizare main gate",
         "tab": "d8f9da260f68b17a",
         "order": 4,
         "disp": true,
@@ -4660,5 +4668,247 @@
         "x": 1110,
         "y": 580,
         "wires": []
+    },
+    {
+        "id": "0b4dade1156f2304",
+        "type": "ui_switch",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "label": "Deschide",
+        "tooltip": "",
+        "group": "506ab0719d70e306",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "6b089f3e478c2fe9"
+            ]
+        ]
+    },
+    {
+        "id": "561d0fe954c59a68",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/Relay2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "0b4dade1156f2304"
+            ]
+        ]
+    },
+    {
+        "id": "b3cd2b79d6da10b9",
+        "type": "mqtt out",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/CMD/Relay2",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 990,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "776588af9129be97",
+        "type": "comment",
+        "z": "78a53e75516b910d",
+        "name": "Main gate automation",
+        "info": "",
+        "x": 200,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "70899d1f43dce3cc",
+        "type": "comment",
+        "z": "78a53e75516b910d",
+        "name": "Power status",
+        "info": "",
+        "x": 170,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ae55228cf549967b",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/eventPower",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "63e0131ecf033072",
+                "ddb4e25c74f65861",
+                "bf1a45b655396b80"
+            ]
+        ]
+    },
+    {
+        "id": "6b089f3e478c2fe9",
+        "type": "trigger",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 740,
+        "y": 100,
+        "wires": [
+            [
+                "b3cd2b79d6da10b9"
+            ]
+        ]
+    },
+    {
+        "id": "63e0131ecf033072",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Power",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 530,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6f8f2ed17cc1a010",
+        "type": "mqtt out",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "esp32SMS/smsSend/to",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1150,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ddb4e25c74f65861",
+        "type": "function",
+        "z": "78a53e75516b910d",
+        "name": "trimite catre numarul de la care a fost requestul",
+        "func": "var smsNumber = global.get(\"number\");\nmsg.payload = \"0740244845\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "6f8f2ed17cc1a010"
+            ]
+        ]
+    },
+    {
+        "id": "d15dacd9ca8b7f63",
+        "type": "mqtt out",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "esp32SMS/smsSend/text",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1150,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "bf1a45b655396b80",
+        "type": "delay",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 860,
+        "y": 380,
+        "wires": [
+            [
+                "d15dacd9ca8b7f63"
+            ]
+        ]
     }
 ]
