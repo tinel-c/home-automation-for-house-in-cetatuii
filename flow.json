@@ -2397,7 +2397,7 @@
         "checkall": "true",
         "repair": true,
         "outputs": 2,
-        "x": 1030,
+        "x": 1050,
         "y": 2020,
         "wires": [
             [
