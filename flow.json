@@ -2443,11 +2443,11 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 1320,
+        "x": 1300,
         "y": 2020,
         "wires": [
             [
-                "3d950d1f359b9fbb"
+                "97497f08a4bf8591"
             ]
         ]
     },
@@ -2465,9 +2465,47 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1550,
+        "x": 1790,
         "y": 2020,
         "wires": []
+    },
+    {
+        "id": "97497f08a4bf8591",
+        "type": "change",
+        "z": "df2ec36c3dbdb923",
+        "name": "true to ON and false to OFF",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1520,
+        "y": 2020,
+        "wires": [
+            [
+                "3d950d1f359b9fbb"
+            ]
+        ]
     },
     {
         "id": "0b4dade1156f2304",
