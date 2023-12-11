@@ -1,13 +1,5 @@
 [
     {
-        "id": "1443ac5c69d1a2ac",
-        "type": "tab",
-        "label": "Automatizare poarta",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "df2ec36c3dbdb923",
         "type": "tab",
         "label": "SMS gateway ",
@@ -16,9 +8,17 @@
         "env": []
     },
     {
-        "id": "30c2080cd95f07e3",
+        "id": "78a53e75516b910d",
         "type": "tab",
-        "label": "Garden Lights",
+        "label": "Main Gate",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1443ac5c69d1a2ac",
+        "type": "tab",
+        "label": "Automatizare poarta",
         "disabled": false,
         "info": "",
         "env": []
@@ -40,9 +40,9 @@
         "env": []
     },
     {
-        "id": "78a53e75516b910d",
+        "id": "30c2080cd95f07e3",
         "type": "tab",
-        "label": "Main Gate",
+        "label": "Garden Lights",
         "disabled": false,
         "info": "",
         "env": []
@@ -256,550 +256,6 @@
         "width": "6",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "2484df462203f0fa",
-        "type": "mqtt in",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "stat/automatizare_poarta/POWER1",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 280,
-        "y": 240,
-        "wires": [
-            [
-                "632d2f39b5818f7c"
-            ]
-        ]
-    },
-    {
-        "id": "5d5513ae624984fe",
-        "type": "ui_switch",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "label": "Deschide",
-        "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 720,
-        "y": 240,
-        "wires": [
-            [
-                "fc19d7cc774c78ae"
-            ]
-        ]
-    },
-    {
-        "id": "0211c22715b51fc4",
-        "type": "mqtt out",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "cmnd/automatizare_poarta/Power1",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 1300,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "9eb783b6b952e4d8",
-        "type": "mqtt in",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "stat/automatizare_poarta/POWER2",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 280,
-        "y": 300,
-        "wires": [
-            [
-                "91db8a0ca063031d"
-            ]
-        ]
-    },
-    {
-        "id": "4652171ab4344cd4",
-        "type": "ui_switch",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "label": "Inchide",
-        "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 720,
-        "y": 300,
-        "wires": [
-            [
-                "5312798480912252"
-            ]
-        ]
-    },
-    {
-        "id": "aa1873314110279c",
-        "type": "mqtt out",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "cmnd/automatizare_poarta/Power2",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 1300,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "91db8a0ca063031d",
-        "type": "change",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 300,
-        "wires": [
-            [
-                "4652171ab4344cd4"
-            ]
-        ]
-    },
-    {
-        "id": "632d2f39b5818f7c",
-        "type": "change",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 240,
-        "wires": [
-            [
-                "5d5513ae624984fe"
-            ]
-        ]
-    },
-    {
-        "id": "932caea425db6ced",
-        "type": "mqtt in",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "stat/automatizare_poarta/POWER3",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 280,
-        "y": 360,
-        "wires": [
-            [
-                "29ac59b3e6a322f9"
-            ]
-        ]
-    },
-    {
-        "id": "ada39c6a69dac552",
-        "type": "ui_switch",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "label": "Trigger",
-        "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 720,
-        "y": 360,
-        "wires": [
-            [
-                "22fa284dcf61e365"
-            ]
-        ]
-    },
-    {
-        "id": "efe37bcfe95ea441",
-        "type": "mqtt out",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "cmnd/automatizare_poarta/Power3",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 1300,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "29ac59b3e6a322f9",
-        "type": "change",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 360,
-        "wires": [
-            [
-                "ada39c6a69dac552"
-            ]
-        ]
-    },
-    {
-        "id": "c9681cf65181bdb4",
-        "type": "mqtt in",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "stat/automatizare_poarta/POWER4",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 280,
-        "y": 420,
-        "wires": [
-            [
-                "e93b60b207816756"
-            ]
-        ]
-    },
-    {
-        "id": "dbc028ae2932b242",
-        "type": "ui_switch",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "label": "Deschide",
-        "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 720,
-        "y": 420,
-        "wires": [
-            [
-                "c2cfc935cf8a17d2"
-            ]
-        ]
-    },
-    {
-        "id": "24bfd712263b5c13",
-        "type": "mqtt out",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "topic": "cmnd/automatizare_poarta/Power4",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 1300,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "e93b60b207816756",
-        "type": "change",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "OFF",
-                "fromt": "str",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "ON",
-                "fromt": "str",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 420,
-        "wires": [
-            [
-                "dbc028ae2932b242"
-            ]
-        ]
-    },
-    {
-        "id": "fc19d7cc774c78ae",
-        "type": "trigger",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "op1": "true",
-        "op2": "false",
-        "op1type": "bool",
-        "op2type": "bool",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 980,
-        "y": 240,
-        "wires": [
-            [
-                "0211c22715b51fc4"
-            ]
-        ]
-    },
-    {
-        "id": "5312798480912252",
-        "type": "trigger",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "op1": "true",
-        "op2": "false",
-        "op1type": "bool",
-        "op2type": "bool",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 980,
-        "y": 300,
-        "wires": [
-            [
-                "aa1873314110279c"
-            ]
-        ]
-    },
-    {
-        "id": "22fa284dcf61e365",
-        "type": "trigger",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "op1": "true",
-        "op2": "false",
-        "op1type": "bool",
-        "op2type": "bool",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 980,
-        "y": 360,
-        "wires": [
-            [
-                "efe37bcfe95ea441"
-            ]
-        ]
-    },
-    {
-        "id": "c2cfc935cf8a17d2",
-        "type": "trigger",
-        "z": "1443ac5c69d1a2ac",
-        "name": "",
-        "op1": "true",
-        "op2": "false",
-        "op1type": "bool",
-        "op2type": "bool",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 980,
-        "y": 420,
-        "wires": [
-            [
-                "24bfd712263b5c13"
-            ]
-        ]
     },
     {
         "id": "8458b627e04d268c",
@@ -1146,7 +602,7 @@
         "type": "function",
         "z": "df2ec36c3dbdb923",
         "name": "check for deschide",
-        "func": "if (msg.payload.includes(\"deschide\"))\n{\n    msg.payload = true;\n} else\n{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "func": "if (msg.payload.includes(\"deschide\")||msg.payload.includes(\"o2\"))\n{\n    msg.payload = true;\n} else\n{\n    msg.payload = false;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1165,7 +621,7 @@
         "type": "function",
         "z": "df2ec36c3dbdb923",
         "name": "check for inchide",
-        "func": "if (msg.payload.includes(\"inchide\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "func": "if (msg.payload.includes(\"inchide\")||msg.payload.includes(\"c2\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1505,7 +961,8 @@
                 "bf38a4f606393ebc",
                 "245261643ca98294",
                 "0a2aa4ef777c8cc0",
-                "d7c283fc0b9a935b"
+                "d7c283fc0b9a935b",
+                "78a27cab24dd3b3a"
             ]
         ]
     },
@@ -1541,7 +998,7 @@
         "type": "function",
         "z": "df2ec36c3dbdb923",
         "name": "trimite help text",
-        "func": "msg.payload=\"Commenzi suportate: \\n poarta principala: deschide / inchide / trigger / opreste \\n \\\n                                 \\n poarta secundara: open / close / toggle / stop \\n\"\n\nreturn msg;",
+        "func": "msg.payload =\"Commenzi suportate: \\n poarta principala: offen (o1) \\n \\\n                                 \\n poarta mare: deschide (o2)/ inchide (c2) / trigger / opreste \\n \\\n                                 \\n poarta mica: open (o3) / close (c3) / toggle / stop \\n\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1774,7 +1231,7 @@
         "type": "function",
         "z": "df2ec36c3dbdb923",
         "name": "check for open",
-        "func": "if (msg.payload.includes(\"open\"))\n{\n    msg.payload = true;\n} else\n{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "func": "if (msg.payload.includes(\"open\")||msg.payload.includes(\"o3\"))\n{\n    msg.payload = true;\n} else\n{\n    msg.payload = false;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1793,7 +1250,7 @@
         "type": "function",
         "z": "df2ec36c3dbdb923",
         "name": "check for close",
-        "func": "if (msg.payload.includes(\"close\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
+        "func": "if (msg.payload.includes(\"close\") || msg.payload.includes(\"c3\")) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2894,6 +2351,2015 @@
         ]
     },
     {
+        "id": "3b16969c59d8ac8e",
+        "type": "comment",
+        "z": "df2ec36c3dbdb923",
+        "name": "Configure main gate",
+        "info": "",
+        "x": 850,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "78a27cab24dd3b3a",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "check for deschide",
+        "func": "if (msg.payload.includes(\"offen\")||msg.payload.includes(\"o1\"))\n{\n    msg.payload = true;\n} else\n{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 2020,
+        "wires": [
+            [
+                "1d58bf5132aa12fc"
+            ]
+        ]
+    },
+    {
+        "id": "1d58bf5132aa12fc",
+        "type": "switch",
+        "z": "df2ec36c3dbdb923",
+        "name": "true or false",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": true,
+        "outputs": 2,
+        "x": 1030,
+        "y": 2020,
+        "wires": [
+            [
+                "5b0c5c1ef50f9e8a",
+                "23ff27135a8f8cc0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5b0c5c1ef50f9e8a",
+        "type": "function",
+        "z": "df2ec36c3dbdb923",
+        "name": "trimite deschide poarta",
+        "func": "msg.payload=\"receptionat deschide poarta principala\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 1940,
+        "wires": [
+            [
+                "d01998593b99f2b9"
+            ]
+        ]
+    },
+    {
+        "id": "23ff27135a8f8cc0",
+        "type": "trigger",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1320,
+        "y": 2020,
+        "wires": [
+            [
+                "3d950d1f359b9fbb"
+            ]
+        ]
+    },
+    {
+        "id": "3d950d1f359b9fbb",
+        "type": "mqtt out",
+        "z": "df2ec36c3dbdb923",
+        "name": "",
+        "topic": "MainGate/CMD/Relay2",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1550,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "0b4dade1156f2304",
+        "type": "ui_switch",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "label": "Deschide",
+        "tooltip": "",
+        "group": "506ab0719d70e306",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "6b089f3e478c2fe9"
+            ]
+        ]
+    },
+    {
+        "id": "561d0fe954c59a68",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/Relay2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "0b4dade1156f2304"
+            ]
+        ]
+    },
+    {
+        "id": "b3cd2b79d6da10b9",
+        "type": "mqtt out",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/CMD/Relay2",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 990,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "776588af9129be97",
+        "type": "comment",
+        "z": "78a53e75516b910d",
+        "name": "Main gate automation",
+        "info": "",
+        "x": 200,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "70899d1f43dce3cc",
+        "type": "comment",
+        "z": "78a53e75516b910d",
+        "name": "Power status",
+        "info": "",
+        "x": 170,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ae55228cf549967b",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/eventPower",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "63e0131ecf033072",
+                "ddb4e25c74f65861",
+                "334132eacf830096"
+            ]
+        ]
+    },
+    {
+        "id": "6b089f3e478c2fe9",
+        "type": "trigger",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 740,
+        "y": 100,
+        "wires": [
+            [
+                "b3cd2b79d6da10b9"
+            ]
+        ]
+    },
+    {
+        "id": "63e0131ecf033072",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Power",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 530,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6f8f2ed17cc1a010",
+        "type": "mqtt out",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "esp32SMS/smsSend/to",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1150,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ddb4e25c74f65861",
+        "type": "function",
+        "z": "78a53e75516b910d",
+        "name": "trimite catre numarul de la care a fost requestul",
+        "func": "var smsNumber = global.get(\"number\");\nmsg.payload = \"0740244845\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "6f8f2ed17cc1a010"
+            ]
+        ]
+    },
+    {
+        "id": "d15dacd9ca8b7f63",
+        "type": "mqtt out",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "esp32SMS/smsSend/text",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1150,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "bf1a45b655396b80",
+        "type": "delay",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 860,
+        "y": 380,
+        "wires": [
+            [
+                "d15dacd9ca8b7f63"
+            ]
+        ]
+    },
+    {
+        "id": "334132eacf830096",
+        "type": "function",
+        "z": "78a53e75516b910d",
+        "name": "Add message power status",
+        "func": "msg.payload = \"Power status: \" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "bf1a45b655396b80"
+            ]
+        ]
+    },
+    {
+        "id": "44f70b8ea0d73d2d",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/reccurentStatusRelay1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "f784fd8f75c73a7b"
+            ]
+        ]
+    },
+    {
+        "id": "f784fd8f75c73a7b",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Relay 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8860b45a3b598748",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/reccurentStatusRelay2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "da9d0ff9b4168424"
+            ]
+        ]
+    },
+    {
+        "id": "da9d0ff9b4168424",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Relay 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "30f9a221d9a2f93d",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/reccurentStatusRelay3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 580,
+        "wires": [
+            [
+                "e4bddf094af21d35"
+            ]
+        ]
+    },
+    {
+        "id": "e4bddf094af21d35",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Relay 3",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "daa6c8d15e75e28f",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/reccurentStatusRelay4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 620,
+        "wires": [
+            [
+                "1865d158115a3d28"
+            ]
+        ]
+    },
+    {
+        "id": "1865d158115a3d28",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Relay 4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "74279b1486359670",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/reccurentStatusMains",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 680,
+        "wires": [
+            [
+                "e4cca712f6fca6c3"
+            ]
+        ]
+    },
+    {
+        "id": "e4cca712f6fca6c3",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Mains",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 590,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "9a396c972b11e0bb",
+        "type": "mqtt in",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "topic": "MainGate/STAT/reccurentStatusKeypad",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 720,
+        "wires": [
+            [
+                "34526058d73712a8"
+            ]
+        ]
+    },
+    {
+        "id": "34526058d73712a8",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Keypad",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 600,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "2484df462203f0fa",
+        "type": "mqtt in",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "stat/automatizare_poarta/POWER1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 240,
+        "wires": [
+            [
+                "632d2f39b5818f7c"
+            ]
+        ]
+    },
+    {
+        "id": "5d5513ae624984fe",
+        "type": "ui_switch",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "label": "Deschide",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 720,
+        "y": 240,
+        "wires": [
+            [
+                "fc19d7cc774c78ae"
+            ]
+        ]
+    },
+    {
+        "id": "0211c22715b51fc4",
+        "type": "mqtt out",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "cmnd/automatizare_poarta/Power1",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1300,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9eb783b6b952e4d8",
+        "type": "mqtt in",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "stat/automatizare_poarta/POWER2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "91db8a0ca063031d"
+            ]
+        ]
+    },
+    {
+        "id": "4652171ab4344cd4",
+        "type": "ui_switch",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "label": "Inchide",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "5312798480912252"
+            ]
+        ]
+    },
+    {
+        "id": "aa1873314110279c",
+        "type": "mqtt out",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "cmnd/automatizare_poarta/Power2",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1300,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "91db8a0ca063031d",
+        "type": "change",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "4652171ab4344cd4"
+            ]
+        ]
+    },
+    {
+        "id": "632d2f39b5818f7c",
+        "type": "change",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 240,
+        "wires": [
+            [
+                "5d5513ae624984fe"
+            ]
+        ]
+    },
+    {
+        "id": "932caea425db6ced",
+        "type": "mqtt in",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "stat/automatizare_poarta/POWER3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "29ac59b3e6a322f9"
+            ]
+        ]
+    },
+    {
+        "id": "ada39c6a69dac552",
+        "type": "ui_switch",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "label": "Trigger",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 720,
+        "y": 360,
+        "wires": [
+            [
+                "22fa284dcf61e365"
+            ]
+        ]
+    },
+    {
+        "id": "efe37bcfe95ea441",
+        "type": "mqtt out",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "cmnd/automatizare_poarta/Power3",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1300,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "29ac59b3e6a322f9",
+        "type": "change",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "ada39c6a69dac552"
+            ]
+        ]
+    },
+    {
+        "id": "c9681cf65181bdb4",
+        "type": "mqtt in",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "stat/automatizare_poarta/POWER4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "e93b60b207816756"
+            ]
+        ]
+    },
+    {
+        "id": "dbc028ae2932b242",
+        "type": "ui_switch",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "label": "Deschide",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 720,
+        "y": 420,
+        "wires": [
+            [
+                "c2cfc935cf8a17d2"
+            ]
+        ]
+    },
+    {
+        "id": "24bfd712263b5c13",
+        "type": "mqtt out",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "topic": "cmnd/automatizare_poarta/Power4",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1300,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e93b60b207816756",
+        "type": "change",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "dbc028ae2932b242"
+            ]
+        ]
+    },
+    {
+        "id": "fc19d7cc774c78ae",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 240,
+        "wires": [
+            [
+                "0211c22715b51fc4"
+            ]
+        ]
+    },
+    {
+        "id": "5312798480912252",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 300,
+        "wires": [
+            [
+                "aa1873314110279c"
+            ]
+        ]
+    },
+    {
+        "id": "22fa284dcf61e365",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 360,
+        "wires": [
+            [
+                "efe37bcfe95ea441"
+            ]
+        ]
+    },
+    {
+        "id": "c2cfc935cf8a17d2",
+        "type": "trigger",
+        "z": "1443ac5c69d1a2ac",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 980,
+        "y": 420,
+        "wires": [
+            [
+                "24bfd712263b5c13"
+            ]
+        ]
+    },
+    {
+        "id": "0dfa01e39586f4fd",
+        "type": "mqtt in",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/STAT/Relay1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 160,
+        "wires": [
+            [
+                "eacf87b424e3eb01"
+            ]
+        ]
+    },
+    {
+        "id": "b0e7b6fbd5b6ad29",
+        "type": "ui_switch",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "label": "Deschide",
+        "tooltip": "",
+        "group": "40182ab45a3bd31c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "1f28e9f3d150843e"
+            ]
+        ]
+    },
+    {
+        "id": "57285d1cc57fa4d8",
+        "type": "mqtt out",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay1",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 950,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "73b4f198a35ee3f6",
+        "type": "mqtt in",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/STAT/Relay2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "b0e7b6fbd5b6ad29"
+            ]
+        ]
+    },
+    {
+        "id": "eacf87b424e3eb01",
+        "type": "ui_switch",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "label": "Inchide",
+        "tooltip": "",
+        "group": "40182ab45a3bd31c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "e7be816ec7b4639c"
+            ]
+        ]
+    },
+    {
+        "id": "de3a0dd5118ced7b",
+        "type": "mqtt out",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay2",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 950,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f9e4e2328212a77c",
+        "type": "mqtt in",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/STAT/Relay3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 220,
+        "wires": [
+            [
+                "d98c15c67766ce5d"
+            ]
+        ]
+    },
+    {
+        "id": "d98c15c67766ce5d",
+        "type": "ui_switch",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "label": "Trigger",
+        "tooltip": "",
+        "group": "40182ab45a3bd31c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 480,
+        "y": 220,
+        "wires": [
+            [
+                "b03d1992d272fe1e"
+            ]
+        ]
+    },
+    {
+        "id": "fb063873ee362e62",
+        "type": "mqtt out",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay3",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 950,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f723461ba2cccfde",
+        "type": "mqtt in",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/STAT/Relay4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "81107ae8e0893d37"
+            ]
+        ]
+    },
+    {
+        "id": "81107ae8e0893d37",
+        "type": "ui_switch",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "label": "Stop",
+        "tooltip": "",
+        "group": "40182ab45a3bd31c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "6a404fdcf72eac3c"
+            ]
+        ]
+    },
+    {
+        "id": "f938beb2013f4347",
+        "type": "mqtt out",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay4",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 950,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7df932c9b9323794",
+        "type": "comment",
+        "z": "402ae319d72eccf6",
+        "name": "Gate automation",
+        "info": "",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ca022a88ad05e408",
+        "type": "comment",
+        "z": "402ae319d72eccf6",
+        "name": "Light automation",
+        "info": "",
+        "x": 140,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "99bc9f8280a64828",
+        "type": "mqtt in",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/STAT/Relay5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 400,
+        "wires": [
+            [
+                "888bdf10d859f5c5"
+            ]
+        ]
+    },
+    {
+        "id": "888bdf10d859f5c5",
+        "type": "ui_switch",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "label": "Left light",
+        "tooltip": "",
+        "group": "40182ab45a3bd31c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "96bf08e1bdbd4252"
+            ]
+        ]
+    },
+    {
+        "id": "85fcde512f4b4b9e",
+        "type": "mqtt out",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay5",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 950,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5da0c869e3f99ce6",
+        "type": "mqtt in",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/STAT/Relay6",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "eece975f5a1bab3b"
+            ]
+        ]
+    },
+    {
+        "id": "eece975f5a1bab3b",
+        "type": "ui_switch",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "label": "Right light",
+        "tooltip": "",
+        "group": "40182ab45a3bd31c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 480,
+        "y": 460,
+        "wires": [
+            [
+                "8dd870237be46a1c"
+            ]
+        ]
+    },
+    {
+        "id": "0f0fb557876f4b2e",
+        "type": "mqtt out",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "topic": "SecondGate/CMD/Relay6",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 950,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1f28e9f3d150843e",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "de3a0dd5118ced7b"
+            ]
+        ]
+    },
+    {
+        "id": "e7be816ec7b4639c",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "57285d1cc57fa4d8"
+            ]
+        ]
+    },
+    {
+        "id": "b03d1992d272fe1e",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 220,
+        "wires": [
+            [
+                "fb063873ee362e62"
+            ]
+        ]
+    },
+    {
+        "id": "6a404fdcf72eac3c",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 700,
+        "y": 280,
+        "wires": [
+            [
+                "f938beb2013f4347"
+            ]
+        ]
+    },
+    {
+        "id": "96bf08e1bdbd4252",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "120",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "85fcde512f4b4b9e"
+            ]
+        ]
+    },
+    {
+        "id": "8dd870237be46a1c",
+        "type": "trigger",
+        "z": "402ae319d72eccf6",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "120",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "0f0fb557876f4b2e"
+            ]
+        ]
+    },
+    {
+        "id": "b34fb706c2f4d3b0",
+        "type": "mqtt in",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "topic": "tele/sonoffPower320D_afara/SENSOR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "4ae74f62ef9cf3eb",
+                "3d00d2457d81a663",
+                "87cbf35e467f7766",
+                "133289a4043879b0",
+                "871536f97bc5f88a",
+                "49c6b1d3c58c7654"
+            ]
+        ]
+    },
+    {
+        "id": "4ae74f62ef9cf3eb",
+        "type": "ui_text",
+        "z": "ec1761727ca60cf2",
+        "group": "ad313602d86893b8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Voltage",
+        "format": "{{msg.payload.ENERGY.Voltage}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3d00d2457d81a663",
+        "type": "ui_text",
+        "z": "ec1761727ca60cf2",
+        "group": "ad313602d86893b8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Total Consumtion",
+        "format": "{{msg.payload.ENERGY.Total}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 650,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "87cbf35e467f7766",
+        "type": "ui_text",
+        "z": "ec1761727ca60cf2",
+        "group": "ad313602d86893b8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Yesterday Consumtion",
+        "format": "{{msg.payload.ENERGY.Yesterday}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 660,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "133289a4043879b0",
+        "type": "ui_text",
+        "z": "ec1761727ca60cf2",
+        "group": "ad313602d86893b8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Today Consumtion",
+        "format": "{{msg.payload.ENERGY.Today}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 650,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "871536f97bc5f88a",
+        "type": "ui_text",
+        "z": "ec1761727ca60cf2",
+        "group": "ad313602d86893b8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current",
+        "format": "{{msg.payload.ENERGY.Current}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 620,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "49c6b1d3c58c7654",
+        "type": "ui_text",
+        "z": "ec1761727ca60cf2",
+        "group": "ad313602d86893b8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Power",
+        "format": "{{msg.payload.ENERGY.Power}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "554317472d5ed26e",
+        "type": "ui_switch",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "label": "Garden Power",
+        "tooltip": "",
+        "group": "ad313602d86893b8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 720,
+        "y": 580,
+        "wires": [
+            [
+                "96c6547c0026458c"
+            ]
+        ]
+    },
+    {
+        "id": "85d5cb52b735663a",
+        "type": "mqtt in",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "topic": "stat/sonoffPower320D_afara/POWER",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 580,
+        "wires": [
+            [
+                "554317472d5ed26e"
+            ]
+        ]
+    },
+    {
+        "id": "96c6547c0026458c",
+        "type": "mqtt out",
+        "z": "ec1761727ca60cf2",
+        "name": "",
+        "topic": "cmnd/sonoffPower320D_afara/Power",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1110,
+        "y": 580,
+        "wires": []
+    },
+    {
         "id": "1b6d42f41f565178",
         "type": "mqtt in",
         "z": "30c2080cd95f07e3",
@@ -3846,1351 +5312,5 @@
                 "8866514cba7faa8f"
             ]
         ]
-    },
-    {
-        "id": "0dfa01e39586f4fd",
-        "type": "mqtt in",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/STAT/Relay1",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 210,
-        "y": 160,
-        "wires": [
-            [
-                "eacf87b424e3eb01"
-            ]
-        ]
-    },
-    {
-        "id": "b0e7b6fbd5b6ad29",
-        "type": "ui_switch",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "label": "Deschide",
-        "tooltip": "",
-        "group": "40182ab45a3bd31c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 480,
-        "y": 100,
-        "wires": [
-            [
-                "1f28e9f3d150843e"
-            ]
-        ]
-    },
-    {
-        "id": "57285d1cc57fa4d8",
-        "type": "mqtt out",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/CMD/Relay1",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 950,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "73b4f198a35ee3f6",
-        "type": "mqtt in",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/STAT/Relay2",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 210,
-        "y": 100,
-        "wires": [
-            [
-                "b0e7b6fbd5b6ad29"
-            ]
-        ]
-    },
-    {
-        "id": "eacf87b424e3eb01",
-        "type": "ui_switch",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "label": "Inchide",
-        "tooltip": "",
-        "group": "40182ab45a3bd31c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 480,
-        "y": 160,
-        "wires": [
-            [
-                "e7be816ec7b4639c"
-            ]
-        ]
-    },
-    {
-        "id": "de3a0dd5118ced7b",
-        "type": "mqtt out",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/CMD/Relay2",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 950,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "f9e4e2328212a77c",
-        "type": "mqtt in",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/STAT/Relay3",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 210,
-        "y": 220,
-        "wires": [
-            [
-                "d98c15c67766ce5d"
-            ]
-        ]
-    },
-    {
-        "id": "d98c15c67766ce5d",
-        "type": "ui_switch",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "label": "Trigger",
-        "tooltip": "",
-        "group": "40182ab45a3bd31c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 480,
-        "y": 220,
-        "wires": [
-            [
-                "b03d1992d272fe1e"
-            ]
-        ]
-    },
-    {
-        "id": "fb063873ee362e62",
-        "type": "mqtt out",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/CMD/Relay3",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 950,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "f723461ba2cccfde",
-        "type": "mqtt in",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/STAT/Relay4",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 210,
-        "y": 280,
-        "wires": [
-            [
-                "81107ae8e0893d37"
-            ]
-        ]
-    },
-    {
-        "id": "81107ae8e0893d37",
-        "type": "ui_switch",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "label": "Stop",
-        "tooltip": "",
-        "group": "40182ab45a3bd31c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 470,
-        "y": 280,
-        "wires": [
-            [
-                "6a404fdcf72eac3c"
-            ]
-        ]
-    },
-    {
-        "id": "f938beb2013f4347",
-        "type": "mqtt out",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/CMD/Relay4",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 950,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "7df932c9b9323794",
-        "type": "comment",
-        "z": "402ae319d72eccf6",
-        "name": "Gate automation",
-        "info": "",
-        "x": 140,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "ca022a88ad05e408",
-        "type": "comment",
-        "z": "402ae319d72eccf6",
-        "name": "Light automation",
-        "info": "",
-        "x": 140,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "99bc9f8280a64828",
-        "type": "mqtt in",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/STAT/Relay5",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 210,
-        "y": 400,
-        "wires": [
-            [
-                "888bdf10d859f5c5"
-            ]
-        ]
-    },
-    {
-        "id": "888bdf10d859f5c5",
-        "type": "ui_switch",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "label": "Left light",
-        "tooltip": "",
-        "group": "40182ab45a3bd31c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 480,
-        "y": 400,
-        "wires": [
-            [
-                "96bf08e1bdbd4252"
-            ]
-        ]
-    },
-    {
-        "id": "85fcde512f4b4b9e",
-        "type": "mqtt out",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/CMD/Relay5",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 950,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "5da0c869e3f99ce6",
-        "type": "mqtt in",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/STAT/Relay6",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 210,
-        "y": 460,
-        "wires": [
-            [
-                "eece975f5a1bab3b"
-            ]
-        ]
-    },
-    {
-        "id": "eece975f5a1bab3b",
-        "type": "ui_switch",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "label": "Right light",
-        "tooltip": "",
-        "group": "40182ab45a3bd31c",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 480,
-        "y": 460,
-        "wires": [
-            [
-                "8dd870237be46a1c"
-            ]
-        ]
-    },
-    {
-        "id": "0f0fb557876f4b2e",
-        "type": "mqtt out",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "topic": "SecondGate/CMD/Relay6",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 950,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "1f28e9f3d150843e",
-        "type": "trigger",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 700,
-        "y": 100,
-        "wires": [
-            [
-                "de3a0dd5118ced7b"
-            ]
-        ]
-    },
-    {
-        "id": "e7be816ec7b4639c",
-        "type": "trigger",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 700,
-        "y": 160,
-        "wires": [
-            [
-                "57285d1cc57fa4d8"
-            ]
-        ]
-    },
-    {
-        "id": "b03d1992d272fe1e",
-        "type": "trigger",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 700,
-        "y": 220,
-        "wires": [
-            [
-                "fb063873ee362e62"
-            ]
-        ]
-    },
-    {
-        "id": "6a404fdcf72eac3c",
-        "type": "trigger",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 700,
-        "y": 280,
-        "wires": [
-            [
-                "f938beb2013f4347"
-            ]
-        ]
-    },
-    {
-        "id": "96bf08e1bdbd4252",
-        "type": "trigger",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "120",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 710,
-        "y": 400,
-        "wires": [
-            [
-                "85fcde512f4b4b9e"
-            ]
-        ]
-    },
-    {
-        "id": "8dd870237be46a1c",
-        "type": "trigger",
-        "z": "402ae319d72eccf6",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "120",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 710,
-        "y": 460,
-        "wires": [
-            [
-                "0f0fb557876f4b2e"
-            ]
-        ]
-    },
-    {
-        "id": "b34fb706c2f4d3b0",
-        "type": "mqtt in",
-        "z": "ec1761727ca60cf2",
-        "name": "",
-        "topic": "tele/sonoffPower320D_afara/SENSOR",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 310,
-        "y": 180,
-        "wires": [
-            [
-                "4ae74f62ef9cf3eb",
-                "3d00d2457d81a663",
-                "87cbf35e467f7766",
-                "133289a4043879b0",
-                "871536f97bc5f88a",
-                "49c6b1d3c58c7654"
-            ]
-        ]
-    },
-    {
-        "id": "4ae74f62ef9cf3eb",
-        "type": "ui_text",
-        "z": "ec1761727ca60cf2",
-        "group": "ad313602d86893b8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Voltage",
-        "format": "{{msg.payload.ENERGY.Voltage}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 620,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "3d00d2457d81a663",
-        "type": "ui_text",
-        "z": "ec1761727ca60cf2",
-        "group": "ad313602d86893b8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Total Consumtion",
-        "format": "{{msg.payload.ENERGY.Total}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 650,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "87cbf35e467f7766",
-        "type": "ui_text",
-        "z": "ec1761727ca60cf2",
-        "group": "ad313602d86893b8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Yesterday Consumtion",
-        "format": "{{msg.payload.ENERGY.Yesterday}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 660,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "133289a4043879b0",
-        "type": "ui_text",
-        "z": "ec1761727ca60cf2",
-        "group": "ad313602d86893b8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Today Consumtion",
-        "format": "{{msg.payload.ENERGY.Today}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 650,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "871536f97bc5f88a",
-        "type": "ui_text",
-        "z": "ec1761727ca60cf2",
-        "group": "ad313602d86893b8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Current",
-        "format": "{{msg.payload.ENERGY.Current}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 620,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "49c6b1d3c58c7654",
-        "type": "ui_text",
-        "z": "ec1761727ca60cf2",
-        "group": "ad313602d86893b8",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Power",
-        "format": "{{msg.payload.ENERGY.Power}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 610,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "554317472d5ed26e",
-        "type": "ui_switch",
-        "z": "ec1761727ca60cf2",
-        "name": "",
-        "label": "Garden Power",
-        "tooltip": "",
-        "group": "ad313602d86893b8",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 720,
-        "y": 580,
-        "wires": [
-            [
-                "96c6547c0026458c"
-            ]
-        ]
-    },
-    {
-        "id": "85d5cb52b735663a",
-        "type": "mqtt in",
-        "z": "ec1761727ca60cf2",
-        "name": "",
-        "topic": "stat/sonoffPower320D_afara/POWER",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 310,
-        "y": 580,
-        "wires": [
-            [
-                "554317472d5ed26e"
-            ]
-        ]
-    },
-    {
-        "id": "96c6547c0026458c",
-        "type": "mqtt out",
-        "z": "ec1761727ca60cf2",
-        "name": "",
-        "topic": "cmnd/sonoffPower320D_afara/Power",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 1110,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "0b4dade1156f2304",
-        "type": "ui_switch",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "label": "Deschide",
-        "tooltip": "",
-        "group": "506ab0719d70e306",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 520,
-        "y": 100,
-        "wires": [
-            [
-                "6b089f3e478c2fe9"
-            ]
-        ]
-    },
-    {
-        "id": "561d0fe954c59a68",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/Relay2",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 240,
-        "y": 100,
-        "wires": [
-            [
-                "0b4dade1156f2304"
-            ]
-        ]
-    },
-    {
-        "id": "b3cd2b79d6da10b9",
-        "type": "mqtt out",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/CMD/Relay2",
-        "qos": "2",
-        "retain": "false",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 990,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "776588af9129be97",
-        "type": "comment",
-        "z": "78a53e75516b910d",
-        "name": "Main gate automation",
-        "info": "",
-        "x": 200,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "70899d1f43dce3cc",
-        "type": "comment",
-        "z": "78a53e75516b910d",
-        "name": "Power status",
-        "info": "",
-        "x": 170,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "ae55228cf549967b",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/eventPower",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 260,
-        "y": 220,
-        "wires": [
-            [
-                "63e0131ecf033072",
-                "ddb4e25c74f65861",
-                "334132eacf830096"
-            ]
-        ]
-    },
-    {
-        "id": "6b089f3e478c2fe9",
-        "type": "trigger",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "1",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 740,
-        "y": 100,
-        "wires": [
-            [
-                "b3cd2b79d6da10b9"
-            ]
-        ]
-    },
-    {
-        "id": "63e0131ecf033072",
-        "type": "ui_text",
-        "z": "78a53e75516b910d",
-        "group": "506ab0719d70e306",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Power",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 530,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "6f8f2ed17cc1a010",
-        "type": "mqtt out",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "esp32SMS/smsSend/to",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 1150,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "ddb4e25c74f65861",
-        "type": "function",
-        "z": "78a53e75516b910d",
-        "name": "trimite catre numarul de la care a fost requestul",
-        "func": "var smsNumber = global.get(\"number\");\nmsg.payload = \"0740244845\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 740,
-        "y": 320,
-        "wires": [
-            [
-                "6f8f2ed17cc1a010"
-            ]
-        ]
-    },
-    {
-        "id": "d15dacd9ca8b7f63",
-        "type": "mqtt out",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "esp32SMS/smsSend/text",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "73850d9f081d4c01",
-        "x": 1150,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "bf1a45b655396b80",
-        "type": "delay",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 860,
-        "y": 380,
-        "wires": [
-            [
-                "d15dacd9ca8b7f63"
-            ]
-        ]
-    },
-    {
-        "id": "334132eacf830096",
-        "type": "function",
-        "z": "78a53e75516b910d",
-        "name": "Add message power status",
-        "func": "msg.payload = \"Power status: \" + msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 600,
-        "y": 380,
-        "wires": [
-            [
-                "bf1a45b655396b80"
-            ]
-        ]
-    },
-    {
-        "id": "44f70b8ea0d73d2d",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/reccurentStatusRelay1",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 290,
-        "y": 500,
-        "wires": [
-            [
-                "f784fd8f75c73a7b"
-            ]
-        ]
-    },
-    {
-        "id": "f784fd8f75c73a7b",
-        "type": "ui_text",
-        "z": "78a53e75516b910d",
-        "group": "506ab0719d70e306",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Relay 1",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 600,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "8860b45a3b598748",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/reccurentStatusRelay2",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 290,
-        "y": 540,
-        "wires": [
-            [
-                "da9d0ff9b4168424"
-            ]
-        ]
-    },
-    {
-        "id": "da9d0ff9b4168424",
-        "type": "ui_text",
-        "z": "78a53e75516b910d",
-        "group": "506ab0719d70e306",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Relay 2",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 600,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "30f9a221d9a2f93d",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/reccurentStatusRelay3",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 290,
-        "y": 580,
-        "wires": [
-            [
-                "e4bddf094af21d35"
-            ]
-        ]
-    },
-    {
-        "id": "e4bddf094af21d35",
-        "type": "ui_text",
-        "z": "78a53e75516b910d",
-        "group": "506ab0719d70e306",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Relay 3",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 600,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "daa6c8d15e75e28f",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/reccurentStatusRelay4",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 290,
-        "y": 620,
-        "wires": [
-            [
-                "1865d158115a3d28"
-            ]
-        ]
-    },
-    {
-        "id": "1865d158115a3d28",
-        "type": "ui_text",
-        "z": "78a53e75516b910d",
-        "group": "506ab0719d70e306",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Relay 4",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 600,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "74279b1486359670",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/reccurentStatusMains",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 290,
-        "y": 680,
-        "wires": [
-            [
-                "e4cca712f6fca6c3"
-            ]
-        ]
-    },
-    {
-        "id": "e4cca712f6fca6c3",
-        "type": "ui_text",
-        "z": "78a53e75516b910d",
-        "group": "506ab0719d70e306",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Mains",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 590,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "9a396c972b11e0bb",
-        "type": "mqtt in",
-        "z": "78a53e75516b910d",
-        "name": "",
-        "topic": "MainGate/STAT/reccurentStatusKeypad",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "73850d9f081d4c01",
-        "nl": false,
-        "rap": false,
-        "rh": 0,
-        "inputs": 0,
-        "x": 290,
-        "y": 720,
-        "wires": [
-            [
-                "34526058d73712a8"
-            ]
-        ]
-    },
-    {
-        "id": "34526058d73712a8",
-        "type": "ui_text",
-        "z": "78a53e75516b910d",
-        "group": "506ab0719d70e306",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Keypad",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 600,
-        "y": 720,
-        "wires": []
     }
 ]
