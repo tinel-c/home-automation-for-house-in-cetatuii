@@ -2785,7 +2785,8 @@
         "y": 500,
         "wires": [
             [
-                "f784fd8f75c73a7b"
+                "f784fd8f75c73a7b",
+                "a9d5d4be163fa848"
             ]
         ]
     },
@@ -2827,7 +2828,8 @@
         "y": 540,
         "wires": [
             [
-                "da9d0ff9b4168424"
+                "da9d0ff9b4168424",
+                "a9d5d4be163fa848"
             ]
         ]
     },
@@ -2869,7 +2871,8 @@
         "y": 580,
         "wires": [
             [
-                "e4bddf094af21d35"
+                "e4bddf094af21d35",
+                "a9d5d4be163fa848"
             ]
         ]
     },
@@ -2911,7 +2914,8 @@
         "y": 620,
         "wires": [
             [
-                "1865d158115a3d28"
+                "1865d158115a3d28",
+                "a9d5d4be163fa848"
             ]
         ]
     },
@@ -2953,7 +2957,8 @@
         "y": 680,
         "wires": [
             [
-                "e4cca712f6fca6c3"
+                "e4cca712f6fca6c3",
+                "a9d5d4be163fa848"
             ]
         ]
     },
@@ -2995,7 +3000,8 @@
         "y": 720,
         "wires": [
             [
-                "34526058d73712a8"
+                "34526058d73712a8",
+                "a9d5d4be163fa848"
             ]
         ]
     },
@@ -3057,7 +3063,8 @@
         "y": 780,
         "wires": [
             [
-                "73153713fe3e813b"
+                "73153713fe3e813b",
+                "a9d5d4be163fa848"
             ]
         ]
     },
@@ -3066,7 +3073,7 @@
         "type": "ui_text",
         "z": "78a53e75516b910d",
         "group": "506ab0719d70e306",
-        "order": 9,
+        "order": 10,
         "width": "6",
         "height": "6",
         "name": "",
@@ -3080,6 +3087,59 @@
         "color": "#000000",
         "x": 590,
         "y": 780,
+        "wires": []
+    },
+    {
+        "id": "a9d5d4be163fa848",
+        "type": "simpletime",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "mydate": true,
+        "myymd": true,
+        "myyear": true,
+        "mymonth": true,
+        "mymonthn": true,
+        "mydom": true,
+        "mydoy": true,
+        "myday": true,
+        "myhourpm": true,
+        "myhour": true,
+        "mytime": true,
+        "mytimes": true,
+        "myminute": true,
+        "myminutes": true,
+        "mysecond": true,
+        "mymillis": true,
+        "myepoch": true,
+        "myrawdate": true,
+        "mypm": true,
+        "x": 650,
+        "y": 860,
+        "wires": [
+            [
+                "c475ed7a845ba333"
+            ]
+        ]
+    },
+    {
+        "id": "c475ed7a845ba333",
+        "type": "ui_text",
+        "z": "78a53e75516b910d",
+        "group": "506ab0719d70e306",
+        "order": 9,
+        "width": "6",
+        "height": "6",
+        "name": "",
+        "label": "Timestamp",
+        "format": "{{msg.myrawdate}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 850,
+        "y": 860,
         "wires": []
     },
     {
