@@ -5614,7 +5614,7 @@
         "type": "function",
         "z": "b4bebeffd798d684",
         "name": "transform to string",
-        "func": "msg.payload = String(msg.payload)\n\nreturn msg;",
+        "func": "var tempString\ntempString = String(msg.payload)\ntempString = tempString.substring(57, tempString.length)\nmsg.payload = tempString\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
