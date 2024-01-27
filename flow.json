@@ -3152,6 +3152,36 @@
         "wires": []
     },
     {
+        "id": "faf9e92ccd023aca",
+        "type": "ui_ui_control",
+        "z": "78a53e75516b910d",
+        "name": "",
+        "events": "all",
+        "x": 860,
+        "y": 500,
+        "wires": [
+            [
+                "64db53504cf4c829"
+            ]
+        ]
+    },
+    {
+        "id": "64db53504cf4c829",
+        "type": "debug",
+        "z": "78a53e75516b910d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 480,
+        "wires": []
+    },
+    {
         "id": "2484df462203f0fa",
         "type": "mqtt in",
         "z": "1443ac5c69d1a2ac",
