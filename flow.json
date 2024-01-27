@@ -5494,7 +5494,7 @@
         "authtype": "BASIC",
         "saslformat": true,
         "token": "oauth2Response.access_token",
-        "box": "INBOX",
+        "box": "NVR",
         "disposition": "Read",
         "criteria": "UNSEEN",
         "repeat": "300",
