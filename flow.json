@@ -5628,5 +5628,34 @@
                 "677011e7702eb511"
             ]
         ]
+    },
+    {
+        "id": "54f3bdbc0f8604dd",
+        "type": "inject",
+        "z": "b4bebeffd798d684",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "0cfbc4b4736d1057"
+            ]
+        ]
     }
 ]
