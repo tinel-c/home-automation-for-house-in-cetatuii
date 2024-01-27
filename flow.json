@@ -48,6 +48,14 @@
         "env": []
     },
     {
+        "id": "b4bebeffd798d684",
+        "type": "tab",
+        "label": "Email to sms",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "73850d9f081d4c01",
         "type": "mqtt-broker",
         "name": "mqtt local",
@@ -5471,6 +5479,31 @@
                 "2ce97019317067b5",
                 "8866514cba7faa8f"
             ]
+        ]
+    },
+    {
+        "id": "8cb13184f2b3be50",
+        "type": "e-mail in",
+        "z": "b4bebeffd798d684",
+        "name": "gmail",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "300",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            []
         ]
     }
 ]
