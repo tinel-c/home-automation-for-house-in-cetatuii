@@ -5603,8 +5603,28 @@
         "y": 220,
         "wires": [
             [
-                "0cfbc4b4736d1057",
-                "677011e7702eb511"
+                "677011e7702eb511",
+                "a66d52c09e7bb59e"
+            ]
+        ]
+    },
+    {
+        "id": "a66d52c09e7bb59e",
+        "type": "function",
+        "z": "b4bebeffd798d684",
+        "name": "extact strings",
+        "func": "var string = msg.payload\nvar event = string.match(/EVENT TYPE:(.*)$/);\nvar camera = string.match(/CAMERA NAME(.*)$/);\n\nconsole.log(event[0]);\nconsole.log(camera[0]);\n\nmsg.payload = event[0] + ' ' + camera[0];\n\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 220,
+        "wires": [
+            [
+                "0cfbc4b4736d1057"
             ]
         ]
     }
