@@ -5497,7 +5497,7 @@
         "box": "NVR",
         "disposition": "Read",
         "criteria": "UNSEEN",
-        "repeat": "300",
+        "repeat": "60",
         "fetch": "auto",
         "inputs": 0,
         "x": 150,
