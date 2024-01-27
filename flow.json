@@ -5605,58 +5605,27 @@
         "wires": [
             [
                 "677011e7702eb511",
-                "a66d52c09e7bb59e"
+                "759d2bd8c0cd2de8"
             ]
         ]
     },
     {
-        "id": "a66d52c09e7bb59e",
+        "id": "759d2bd8c0cd2de8",
         "type": "function",
         "z": "b4bebeffd798d684",
-        "name": "extact strings",
-        "func": "var string = msg.payload\nvar event = string.match(/EVENT TYPE:(.*)$/);\nvar camera = string.match(/CAMERA NAME(.*)$/);\n\nmsg.payload = event[0];\n\nreturn msg",
+        "name": "transform to string",
+        "func": "msg.payload = String(msg.payload)\n\nreturn msg;",
         "outputs": 1,
-        "timeout": 0,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 650,
         "y": 220,
         "wires": [
             [
-                "0cfbc4b4736d1057",
-                "677011e7702eb511"
-            ]
-        ]
-    },
-    {
-        "id": "54f3bdbc0f8604dd",
-        "type": "inject",
-        "z": "b4bebeffd798d684",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "This is an automatically generated e-mail from your NVR.  EVENT TYPE:    Video Signal Lost EVENT TIME:    2024-01-27,07:36:29 NVR NAME:      Network Video Recorder NVR S/N:       0820190315CCRRD00680471WCVU CAMERA NAME(NUM):   (D6)  ",
-        "payloadType": "str",
-        "x": 470,
-        "y": 340,
-        "wires": [
-            [
-                "677011e7702eb511",
-                "a66d52c09e7bb59e"
+                "0cfbc4b4736d1057"
             ]
         ]
     }
