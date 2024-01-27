@@ -5504,7 +5504,9 @@
         "y": 60,
         "wires": [
             [
-                "677011e7702eb511"
+                "677011e7702eb511",
+                "94b78d3c6ed01715",
+                "b13331f98b72a7e1"
             ]
         ]
     },
@@ -5520,8 +5522,89 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
+        "x": 520,
         "y": 60,
         "wires": []
+    },
+    {
+        "id": "b15959df2cc3095a",
+        "type": "mqtt out",
+        "z": "b4bebeffd798d684",
+        "name": "",
+        "topic": "esp32SMS/smsSend/to",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 910,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0cfbc4b4736d1057",
+        "type": "mqtt out",
+        "z": "b4bebeffd798d684",
+        "name": "",
+        "topic": "esp32SMS/smsSend/text",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 910,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "94b78d3c6ed01715",
+        "type": "function",
+        "z": "b4bebeffd798d684",
+        "name": "trimite catre numarul de la care a fost requestul",
+        "func": "msg.payload = \"0740244845\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "0cfbc4b4736d1057"
+            ]
+        ]
+    },
+    {
+        "id": "b13331f98b72a7e1",
+        "type": "delay",
+        "z": "b4bebeffd798d684",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "b15959df2cc3095a"
+            ]
+        ]
     }
 ]
