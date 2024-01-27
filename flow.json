@@ -5649,7 +5649,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "test",
+        "payload": "This is an automatically generated e-mail from your NVR.  EVENT TYPE:    Video Signal Lost EVENT TIME:    2024-01-27,07:36:29 NVR NAME:      Network Video Recorder NVR S/N:       0820190315CCRRD00680471WCVU CAMERA NAME(NUM):   (D6)  ",
         "payloadType": "str",
         "x": 470,
         "y": 340,
