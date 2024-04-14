@@ -5496,7 +5496,7 @@
         "saslformat": true,
         "token": "oauth2Response.access_token",
         "box": "NVR",
-        "disposition": "Read",
+        "disposition": "Delete",
         "criteria": "UNSEEN",
         "repeat": "60",
         "fetch": "auto",
