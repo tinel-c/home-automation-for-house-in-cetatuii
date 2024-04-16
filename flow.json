@@ -5610,5 +5610,134 @@
                 "0cfbc4b4736d1057"
             ]
         ]
+    },
+    {
+        "id": "812dc13956eeee5a",
+        "type": "e-mail in",
+        "z": "b4bebeffd798d684",
+        "name": "gmail Apavital news",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "box": "Apavital",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "60",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "6bb73a9158e559e0",
+                "e909e57e1ad64f75"
+            ]
+        ]
+    },
+    {
+        "id": "dc7b755a94366deb",
+        "type": "mqtt out",
+        "z": "b4bebeffd798d684",
+        "name": "",
+        "topic": "esp32SMS/smsSend/to",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 910,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "37b47057d7cf9068",
+        "type": "mqtt out",
+        "z": "b4bebeffd798d684",
+        "name": "",
+        "topic": "esp32SMS/smsSend/text",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 910,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6bb73a9158e559e0",
+        "type": "function",
+        "z": "b4bebeffd798d684",
+        "name": "trimite catre numarul de la care a fost requestul",
+        "func": "msg.payload = \"0740244845\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "dc7b755a94366deb"
+            ]
+        ]
+    },
+    {
+        "id": "e909e57e1ad64f75",
+        "type": "delay",
+        "z": "b4bebeffd798d684",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "fabe35f27512d675"
+            ]
+        ]
+    },
+    {
+        "id": "fabe35f27512d675",
+        "type": "function",
+        "z": "b4bebeffd798d684",
+        "name": "transform to string",
+        "func": "var tempString\ntempString = String(msg.payload)\ntempString = tempString.substring(57, tempString.length)\nmsg.payload = tempString\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [
+                "37b47057d7cf9068"
+            ]
+        ]
     }
 ]
