@@ -56,6 +56,14 @@
         "env": []
     },
     {
+        "id": "23aa7fa50f4c8897",
+        "type": "tab",
+        "label": "Water pump",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "73850d9f081d4c01",
         "type": "mqtt-broker",
         "name": "mqtt local",
@@ -5737,6 +5745,454 @@
         "wires": [
             [
                 "37b47057d7cf9068"
+            ]
+        ]
+    },
+    {
+        "id": "76cbcd62c11113c0",
+        "type": "comment",
+        "z": "23aa7fa50f4c8897",
+        "name": "Water pump control created with tasmota 4 relay board",
+        "info": "",
+        "x": 300,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e277c1e54a21ad98",
+        "type": "mqtt in",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "stat/pompaApa/POWER1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "52a23267cb160b1f"
+            ]
+        ]
+    },
+    {
+        "id": "8e2d112de5e9dcf0",
+        "type": "ui_switch",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "label": "Deschide",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "778c520c538b1395"
+            ]
+        ]
+    },
+    {
+        "id": "778c520c538b1395",
+        "type": "mqtt out",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "cmnd/pompaApa/Power1",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1230,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "95588f32356cae6f",
+        "type": "mqtt in",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "stat/pompaApa/POWER2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 240,
+        "wires": [
+            [
+                "6f21b63ad5cede79"
+            ]
+        ]
+    },
+    {
+        "id": "dbef83742d529e1c",
+        "type": "ui_switch",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "label": "Inchide",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebbb50de4541f436",
+        "type": "mqtt out",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "cmnd/pompaApa/Power2",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1230,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6f21b63ad5cede79",
+        "type": "change",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "dbef83742d529e1c"
+            ]
+        ]
+    },
+    {
+        "id": "52a23267cb160b1f",
+        "type": "change",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "8e2d112de5e9dcf0"
+            ]
+        ]
+    },
+    {
+        "id": "901668ec1a866864",
+        "type": "mqtt in",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "stat/pompaApa/POWER3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 300,
+        "wires": [
+            [
+                "e63f3368e4c313d9"
+            ]
+        ]
+    },
+    {
+        "id": "9de515f71baf05a4",
+        "type": "ui_switch",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "label": "Trigger",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d05dc81bc6afec68",
+        "type": "mqtt out",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "cmnd/pompaApa/Power3",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1230,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "e63f3368e4c313d9",
+        "type": "change",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 300,
+        "wires": [
+            [
+                "9de515f71baf05a4"
+            ]
+        ]
+    },
+    {
+        "id": "eb1689e288a6f95e",
+        "type": "mqtt in",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "stat/pompaApa/POWER4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "d9c7d703d43a41da"
+            ]
+        ]
+    },
+    {
+        "id": "afaea3f78e998493",
+        "type": "ui_switch",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "label": "Deschide",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "09789c8a9249d8c2",
+        "type": "mqtt out",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "topic": "cmnd/pompaApa/Power4",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1230,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d9c7d703d43a41da",
+        "type": "change",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 360,
+        "wires": [
+            [
+                "afaea3f78e998493"
             ]
         ]
     }
