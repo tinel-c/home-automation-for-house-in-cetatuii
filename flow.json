@@ -274,6 +274,17 @@
         "className": ""
     },
     {
+        "id": "0363603b3b8b845f",
+        "type": "ui_group",
+        "name": "Irigatie",
+        "tab": "d8f9da260f68b17a",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "8458b627e04d268c",
         "type": "mqtt in",
         "z": "df2ec36c3dbdb923",
@@ -5784,9 +5795,9 @@
         "type": "ui_switch",
         "z": "23aa7fa50f4c8897",
         "name": "",
-        "label": "Deschide",
+        "label": "Porneste pompa",
         "tooltip": "",
-        "group": "f0ab848c9c25cfc7",
+        "group": "0363603b3b8b845f",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -5805,7 +5816,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 700,
         "y": 180,
         "wires": [
             [
@@ -5857,7 +5868,7 @@
         "type": "ui_switch",
         "z": "23aa7fa50f4c8897",
         "name": "",
-        "label": "Inchide",
+        "label": "Elimina apa",
         "tooltip": "",
         "group": "f0ab848c9c25cfc7",
         "order": 0,
@@ -5878,10 +5889,12 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 690,
         "y": 240,
         "wires": [
-            []
+            [
+                "049d733ca536959f"
+            ]
         ]
     },
     {
@@ -6004,7 +6017,7 @@
         "type": "ui_switch",
         "z": "23aa7fa50f4c8897",
         "name": "",
-        "label": "Trigger",
+        "label": "Alimentare sant",
         "tooltip": "",
         "group": "f0ab848c9c25cfc7",
         "order": 0,
@@ -6025,7 +6038,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 700,
         "y": 300,
         "wires": [
             []
@@ -6113,7 +6126,7 @@
         "type": "ui_switch",
         "z": "23aa7fa50f4c8897",
         "name": "",
-        "label": "Deschide",
+        "label": "Alimentare sant",
         "tooltip": "",
         "group": "f0ab848c9c25cfc7",
         "order": 0,
@@ -6134,7 +6147,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 680,
+        "x": 700,
         "y": 360,
         "wires": [
             []
@@ -6193,6 +6206,31 @@
         "wires": [
             [
                 "afaea3f78e998493"
+            ]
+        ]
+    },
+    {
+        "id": "049d733ca536959f",
+        "type": "trigger",
+        "z": "23aa7fa50f4c8897",
+        "name": "",
+        "op1": "on",
+        "op2": "off",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 950,
+        "y": 240,
+        "wires": [
+            [
+                "ebbb50de4541f436"
             ]
         ]
     }
