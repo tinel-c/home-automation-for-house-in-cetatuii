@@ -293,17 +293,6 @@
         "className": ""
     },
     {
-        "id": "6ea334257fee60f8",
-        "type": "ui_group",
-        "name": "Irigation",
-        "tab": "d8f9da260f68b17a",
-        "order": 8,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "8458b627e04d268c",
         "type": "mqtt in",
         "z": "df2ec36c3dbdb923",
