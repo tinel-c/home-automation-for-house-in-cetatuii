@@ -226,18 +226,6 @@
         "className": ""
     },
     {
-        "id": "cdaf1034342bf427",
-        "type": "translator-config",
-        "name": "Deschide poarta",
-        "commandText": "on:true\noff:false\nactive:true\ninactive:false\nopen:true\nclosed:false\nclose:false\n1:true\n0:false\ntrue:true\nfalse:false\nhome:true\nnot_home:false\n+40740244845:true\ndeschide:true"
-    },
-    {
-        "id": "4b3fc6af39f89cb4",
-        "type": "translator-config",
-        "name": "inchide poarta",
-        "commandText": "on:true\noff:false\nactive:true\ninactive:false\nopen:true\nclosed:false\nclose:false\n1:true\n0:false\ntrue:true\nfalse:false\nhome:true\nnot_home:false\ninchide:true\n+40740244845:true"
-    },
-    {
         "id": "4f34e9fc19a9590e",
         "type": "ui_group",
         "name": "Garden Lights",
