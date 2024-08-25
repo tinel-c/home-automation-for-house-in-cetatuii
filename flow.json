@@ -6454,7 +6454,7 @@
         "type": "mqtt in",
         "z": "dd53b5c74524e7c3",
         "name": "",
-        "topic": "IrigationSystem/STAT/Relay5",
+        "topic": "stat/IrigationSystem/POWER5",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "73850d9f081d4c01",
