@@ -6256,7 +6256,7 @@
         "type": "mqtt out",
         "z": "dd53b5c74524e7c3",
         "name": "",
-        "topic": "cmd/IrigationSystem/POWER2",
+        "topic": "cmdr/IrigationSystem/POWER2",
         "qos": "0",
         "retain": "true",
         "respTopic": "",
