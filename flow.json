@@ -64,6 +64,14 @@
         "env": []
     },
     {
+        "id": "dd53b5c74524e7c3",
+        "type": "tab",
+        "label": "Irigation",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "73850d9f081d4c01",
         "type": "mqtt-broker",
         "name": "mqtt local",
@@ -279,6 +287,17 @@
         "name": "Irigatie",
         "tab": "d8f9da260f68b17a",
         "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6ea334257fee60f8",
+        "type": "ui_group",
+        "name": "Irigation",
+        "tab": "d8f9da260f68b17a",
+        "order": 8,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -6231,6 +6250,955 @@
         "wires": [
             [
                 "ebbb50de4541f436"
+            ]
+        ]
+    },
+    {
+        "id": "2c4e70d18f7d7ac5",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 60,
+        "wires": [
+            [
+                "e25d5e6f58aabfb1"
+            ]
+        ]
+    },
+    {
+        "id": "e6d3dbd6923ad8e9",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay1",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e25d5e6f58aabfb1",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 1",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 60,
+        "wires": [
+            [
+                "e6d3dbd6923ad8e9"
+            ]
+        ]
+    },
+    {
+        "id": "b6bc6511975e3dc1",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "9bd39f6b43f3919d"
+            ]
+        ]
+    },
+    {
+        "id": "2c24cf793692678b",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9bd39f6b43f3919d",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 2",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 100,
+        "wires": [
+            [
+                "2c24cf793692678b"
+            ]
+        ]
+    },
+    {
+        "id": "b76916d87f63460a",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay3",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 140,
+        "wires": [
+            [
+                "d7395141a8d53ff2"
+            ]
+        ]
+    },
+    {
+        "id": "f05bcb22593670e7",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay3",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d7395141a8d53ff2",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 3",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "f05bcb22593670e7"
+            ]
+        ]
+    },
+    {
+        "id": "4edf219d032abaf2",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 180,
+        "wires": [
+            [
+                "a8b926814a2255fc"
+            ]
+        ]
+    },
+    {
+        "id": "d9567dbf2e9926a9",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay4",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a8b926814a2255fc",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 4",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "d9567dbf2e9926a9"
+            ]
+        ]
+    },
+    {
+        "id": "10fe922bef9f12d6",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay5",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "2d04b99246874e0c"
+            ]
+        ]
+    },
+    {
+        "id": "d240239bd76c754c",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay5",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "2d04b99246874e0c",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 5",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "d240239bd76c754c"
+            ]
+        ]
+    },
+    {
+        "id": "a56b63d27c3f9c3f",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay6",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "d23743d9237ac80c"
+            ]
+        ]
+    },
+    {
+        "id": "963675f364b6f126",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay6",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d23743d9237ac80c",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 6",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 260,
+        "wires": [
+            [
+                "963675f364b6f126"
+            ]
+        ]
+    },
+    {
+        "id": "20eea1c177a08312",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay7",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 300,
+        "wires": [
+            [
+                "f76cdae743d251fd"
+            ]
+        ]
+    },
+    {
+        "id": "07310c155ed61583",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay7",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f76cdae743d251fd",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 7",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 300,
+        "wires": [
+            [
+                "07310c155ed61583"
+            ]
+        ]
+    },
+    {
+        "id": "125df1bda395df3f",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay8",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 340,
+        "wires": [
+            [
+                "5c378098229843f3"
+            ]
+        ]
+    },
+    {
+        "id": "a3be68c5fa64b084",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay8",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "5c378098229843f3",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 8",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "a3be68c5fa64b084"
+            ]
+        ]
+    },
+    {
+        "id": "24bf46d9908dead5",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay9",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 380,
+        "wires": [
+            [
+                "2c31dc97a7af7cf0"
+            ]
+        ]
+    },
+    {
+        "id": "43719fc6761ff94b",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay9",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1100,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2c31dc97a7af7cf0",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 9",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 380,
+        "wires": [
+            [
+                "43719fc6761ff94b"
+            ]
+        ]
+    },
+    {
+        "id": "0e9b92c1e8a3a224",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay10",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 420,
+        "wires": [
+            [
+                "01cd6fc8ac5440cf"
+            ]
+        ]
+    },
+    {
+        "id": "7192f8a02af696d8",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay10",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1110,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "01cd6fc8ac5440cf",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 10",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 420,
+        "wires": [
+            [
+                "7192f8a02af696d8"
+            ]
+        ]
+    },
+    {
+        "id": "1196891b07da63e8",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay11",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 460,
+        "wires": [
+            [
+                "5f4186f524916303"
+            ]
+        ]
+    },
+    {
+        "id": "ee35f6acdbcac244",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay11",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1110,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5f4186f524916303",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 11",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 460,
+        "wires": [
+            [
+                "ee35f6acdbcac244"
+            ]
+        ]
+    },
+    {
+        "id": "8fbe3468a162b673",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay12",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 500,
+        "wires": [
+            [
+                "94d6a24262c27f7a"
+            ]
+        ]
+    },
+    {
+        "id": "5e8420025ab57f3a",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay12",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1110,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "94d6a24262c27f7a",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "switch 12",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 680,
+        "y": 500,
+        "wires": [
+            [
+                "5e8420025ab57f3a"
+            ]
+        ]
+    },
+    {
+        "id": "8729815e97259ebe",
+        "type": "mqtt in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/STAT/Relay13",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 540,
+        "wires": [
+            [
+                "733451bb13aa6ec4"
+            ]
+        ]
+    },
+    {
+        "id": "1f319ab97d4b61a3",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "IrigationSystem/CMD/Relay13",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1110,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "733451bb13aa6ec4",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "Power",
+        "tooltip": "",
+        "group": "0363603b3b8b845f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 670,
+        "y": 540,
+        "wires": [
+            [
+                "1f319ab97d4b61a3"
             ]
         ]
     }
