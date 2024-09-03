@@ -7406,8 +7406,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Pornit pompa fantana",
-                "tot": "str"
+                "to": "\"Pompa fantana\" : true",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -7467,8 +7467,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Oprit pompa fantana",
-                "tot": "str"
+                "to": "\"Pompa fantana\" : false",
+                "tot": "json"
             }
         ],
         "action": "",
