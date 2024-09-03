@@ -8676,46 +8676,6 @@
         ]
     },
     {
-        "id": "7aebbe8bce4d3e5b",
-        "type": "zone-timer",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "zonename": "Pump",
-        "zonenametype": "str",
-        "duration": "81m",
-        "durationtype": "str",
-        "program": "78e05c6d467c7326",
-        "onval": "ON",
-        "onvaltype": "str",
-        "offval": "OFF",
-        "offvaltype": "str",
-        "x": 720,
-        "y": 1740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e8a33e57534b93ce",
-        "type": "zone-timer",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "zonename": "Power_24V",
-        "zonenametype": "str",
-        "duration": "81m",
-        "durationtype": "str",
-        "program": "78e05c6d467c7326",
-        "onval": "ON",
-        "onvaltype": "str",
-        "offval": "OFF",
-        "offvaltype": "str",
-        "x": 720,
-        "y": 1800,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "72fd7b060def998b",
         "type": "delay",
         "z": "dd53b5c74524e7c3",
@@ -9051,7 +9011,6 @@
         "y": 1740,
         "wires": [
             [
-                "7aebbe8bce4d3e5b",
                 "3b0e511aaeeab2e3",
                 "dca7f49ccccfd0a9"
             ]
@@ -9188,38 +9147,6 @@
         ]
     },
     {
-        "id": "32639b81b473aa51",
-        "type": "zone in",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "zonename": "Pump",
-        "program": "78e05c6d467c7326",
-        "x": 510,
-        "y": 600,
-        "wires": [
-            [
-                "44546fbc698797c1",
-                "3e7ed95721dcb4a2"
-            ]
-        ]
-    },
-    {
-        "id": "27ef67dd484d1b5b",
-        "type": "zone in",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "zonename": "Power_24V",
-        "program": "78e05c6d467c7326",
-        "x": 630,
-        "y": 1020,
-        "wires": [
-            [
-                "7e02788257794e5d",
-                "c576445de1a511f6"
-            ]
-        ]
-    },
-    {
         "id": "3b0e511aaeeab2e3",
         "type": "delay",
         "z": "dd53b5c74524e7c3",
@@ -9236,11 +9163,12 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 520,
-        "y": 1800,
+        "x": 480,
+        "y": 1680,
         "wires": [
             [
-                "e8a33e57534b93ce"
+                "44546fbc698797c1",
+                "3e7ed95721dcb4a2"
             ]
         ]
     },
@@ -9261,11 +9189,13 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 300,
-        "y": 1880,
+        "x": 480,
+        "y": 1740,
         "wires": [
             [
-                "01f7da8be7cc003a"
+                "01f7da8be7cc003a",
+                "7e02788257794e5d",
+                "c576445de1a511f6"
             ]
         ]
     }
