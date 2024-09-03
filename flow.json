@@ -7298,8 +7298,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1020,
-        "y": 940,
+        "x": 700,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -7352,7 +7352,7 @@
         "y": 940,
         "wires": [
             [
-                "11d5751eaf5f0540"
+                "3e7ed95721dcb4a2"
             ]
         ]
     },
@@ -7381,7 +7381,7 @@
         "id": "11d5751eaf5f0540",
         "type": "change",
         "z": "dd53b5c74524e7c3",
-        "name": "",
+        "name": "Pornit pompa fantana",
         "rules": [
             {
                 "t": "set",
@@ -7396,7 +7396,67 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
+        "x": 880,
+        "y": 880,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "3e7ed95721dcb4a2",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 940,
+        "wires": [
+            [
+                "11d5751eaf5f0540"
+            ],
+            [
+                "5270cea5e08c7fab"
+            ]
+        ]
+    },
+    {
+        "id": "5270cea5e08c7fab",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit pompa fantana",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit pompa fantana",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
         "y": 940,
         "wires": [
             [
