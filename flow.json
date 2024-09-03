@@ -7406,7 +7406,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "\"Pompa fantana\" : true",
+                "to": "{\"Pompa_fantana\":true}",
                 "tot": "json"
             }
         ],
@@ -7467,7 +7467,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "\"Pompa fantana\" : false",
+                "to": "{\"Pompa_fantana\" : false}",
                 "tot": "json"
             }
         ],
