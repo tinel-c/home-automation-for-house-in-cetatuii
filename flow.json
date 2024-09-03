@@ -7366,7 +7366,7 @@
         "height": 0,
         "name": "",
         "label": "Status automatizare irigatie",
-        "format": "{{msg.myrawdate}}",
+        "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
         "style": false,
