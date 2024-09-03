@@ -7674,7 +7674,8 @@
         "z": "dd53b5c74524e7c3",
         "name": "Power",
         "links": [
-            "7e02788257794e5d"
+            "7e02788257794e5d",
+            "b8dfed2ac23f1add"
         ],
         "x": 865,
         "y": 520,
@@ -7688,13 +7689,13 @@
         "id": "7e02788257794e5d",
         "type": "link out",
         "z": "dd53b5c74524e7c3",
-        "name": "Power",
+        "name": "Start Power",
         "mode": "link",
         "links": [
             "aab540ef1b048d52"
         ],
-        "x": 875,
-        "y": 980,
+        "x": 655,
+        "y": 1740,
         "wires": []
     },
     {
@@ -8671,7 +8672,8 @@
         "y": 2300,
         "wires": [
             [
-                "85c3bcfff98634db"
+                "85c3bcfff98634db",
+                "914f76d0ffe2cee6"
             ]
         ]
     },
@@ -8870,7 +8872,9 @@
         "x": 660,
         "y": 2300,
         "wires": [
-            []
+            [
+                "b6dcbeec97dbee1b"
+            ]
         ]
     },
     {
@@ -9168,7 +9172,8 @@
         "wires": [
             [
                 "44546fbc698797c1",
-                "3e7ed95721dcb4a2"
+                "3e7ed95721dcb4a2",
+                "de56b5f20251f7c5"
             ]
         ]
     },
@@ -9196,6 +9201,141 @@
                 "01f7da8be7cc003a",
                 "7e02788257794e5d",
                 "c576445de1a511f6"
+            ]
+        ]
+    },
+    {
+        "id": "914f76d0ffe2cee6",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 660,
+        "y": 2360,
+        "wires": [
+            [
+                "aaaba20d110dd4fe"
+            ]
+        ]
+    },
+    {
+        "id": "785057845b4b3c0e",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pump",
+        "links": [
+            "de56b5f20251f7c5",
+            "d0e68e838552f48d"
+        ],
+        "x": 885,
+        "y": 600,
+        "wires": [
+            [
+                "44546fbc698797c1"
+            ]
+        ]
+    },
+    {
+        "id": "de56b5f20251f7c5",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "Start pump",
+        "mode": "link",
+        "links": [
+            "785057845b4b3c0e"
+        ],
+        "x": 655,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "b8dfed2ac23f1add",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "Stop Power",
+        "mode": "link",
+        "links": [
+            "aab540ef1b048d52"
+        ],
+        "x": 925,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "d0e68e838552f48d",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "Stop pump",
+        "mode": "link",
+        "links": [
+            "785057845b4b3c0e"
+        ],
+        "x": 935,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "b6dcbeec97dbee1b",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "STOP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 2300,
+        "wires": [
+            [
+                "d0e68e838552f48d"
+            ]
+        ]
+    },
+    {
+        "id": "aaaba20d110dd4fe",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "STOP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 2360,
+        "wires": [
+            [
+                "b8dfed2ac23f1add"
             ]
         ]
     }
