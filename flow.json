@@ -289,6 +289,11 @@
         "hidden": false
     },
     {
+        "id": "78e05c6d467c7326",
+        "type": "program",
+        "name": "Lawn"
+    },
+    {
         "id": "8458b627e04d268c",
         "type": "mqtt in",
         "z": "df2ec36c3dbdb923",
@@ -7311,7 +7316,6 @@
         "wires": [
             [
                 "c576445de1a511f6",
-                "78555224457db8dc",
                 "7e02788257794e5d"
             ]
         ]
@@ -7566,33 +7570,6 @@
         ]
     },
     {
-        "id": "78555224457db8dc",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1120,
-        "wires": [
-            [
-                "8f448cc2c35c23bb",
-                "1f9279fc512f8094",
-                "47afa61171190b60"
-            ]
-        ]
-    },
-    {
         "id": "8f448cc2c35c23bb",
         "type": "link out",
         "z": "dd53b5c74524e7c3",
@@ -7601,8 +7578,8 @@
         "links": [
             "d8c20da0eb6f7cc1"
         ],
-        "x": 1075,
-        "y": 1100,
+        "x": 415,
+        "y": 1700,
         "wires": []
     },
     {
@@ -7618,58 +7595,6 @@
         "wires": [
             [
                 "e6d3dbd6923ad8e9"
-            ]
-        ]
-    },
-    {
-        "id": "1f9279fc512f8094",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 740,
-        "y": 1200,
-        "wires": [
-            [
-                "8c4c0ad898919556"
-            ]
-        ]
-    },
-    {
-        "id": "8c4c0ad898919556",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1200,
-        "wires": [
-            [
-                "bc29790f107638ac",
-                "c46ace98ce225802",
-                "09b274f82d9d6503"
             ]
         ]
     },
@@ -7884,58 +7809,6 @@
         "wires": []
     },
     {
-        "id": "c46ace98ce225802",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 740,
-        "y": 1260,
-        "wires": [
-            [
-                "f5f3f0e583590f80"
-            ]
-        ]
-    },
-    {
-        "id": "f5f3f0e583590f80",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1260,
-        "wires": [
-            [
-                "7553d17571f3ceb0",
-                "19a50dd0aa3b6ceb",
-                "3fda499df6fac1b5"
-            ]
-        ]
-    },
-    {
         "id": "7553d17571f3ceb0",
         "type": "link out",
         "z": "dd53b5c74524e7c3",
@@ -7947,58 +7820,6 @@
         "x": 1065,
         "y": 1240,
         "wires": []
-    },
-    {
-        "id": "19a50dd0aa3b6ceb",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 740,
-        "y": 1320,
-        "wires": [
-            [
-                "c8b0a254b751990f"
-            ]
-        ]
-    },
-    {
-        "id": "c8b0a254b751990f",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1320,
-        "wires": [
-            [
-                "3971b2ef0de10474",
-                "5338cfe7b2eb177d",
-                "df7f7005d74c102e"
-            ]
-        ]
     },
     {
         "id": "3971b2ef0de10474",
@@ -8014,58 +7835,6 @@
         "wires": []
     },
     {
-        "id": "5338cfe7b2eb177d",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 740,
-        "y": 1380,
-        "wires": [
-            [
-                "81231e835b24c770"
-            ]
-        ]
-    },
-    {
-        "id": "81231e835b24c770",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1380,
-        "wires": [
-            [
-                "fbe4b184bd6ac1c4",
-                "aae0d1ee4e1f7b3b",
-                "520460f649a9e310"
-            ]
-        ]
-    },
-    {
         "id": "fbe4b184bd6ac1c4",
         "type": "link out",
         "z": "dd53b5c74524e7c3",
@@ -8077,58 +7846,6 @@
         "x": 1055,
         "y": 1360,
         "wires": []
-    },
-    {
-        "id": "aae0d1ee4e1f7b3b",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 740,
-        "y": 1440,
-        "wires": [
-            [
-                "38f7bbee7b3a73e5"
-            ]
-        ]
-    },
-    {
-        "id": "38f7bbee7b3a73e5",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1440,
-        "wires": [
-            [
-                "a7e9072620affafe",
-                "115b8c52ecc10397",
-                "cf0397a001cf76c2"
-            ]
-        ]
     },
     {
         "id": "a7e9072620affafe",
@@ -8144,58 +7861,6 @@
         "wires": []
     },
     {
-        "id": "115b8c52ecc10397",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 740,
-        "y": 1500,
-        "wires": [
-            [
-                "03c1a5f06c61136d"
-            ]
-        ]
-    },
-    {
-        "id": "03c1a5f06c61136d",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1500,
-        "wires": [
-            [
-                "12a90f0a01aa39f1",
-                "e35152cc210ada42",
-                "18375a5ce75f5cda"
-            ]
-        ]
-    },
-    {
         "id": "12a90f0a01aa39f1",
         "type": "link out",
         "z": "dd53b5c74524e7c3",
@@ -8207,57 +7872,6 @@
         "x": 1065,
         "y": 1480,
         "wires": []
-    },
-    {
-        "id": "e35152cc210ada42",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 740,
-        "y": 1560,
-        "wires": [
-            [
-                "0640f244db73681e"
-            ]
-        ]
-    },
-    {
-        "id": "0640f244db73681e",
-        "type": "trigger",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "OFF",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 1560,
-        "wires": [
-            [
-                "b4e2d0b0ad7140b1",
-                "ac27992f7a7b1d02"
-            ]
-        ]
     },
     {
         "id": "b4e2d0b0ad7140b1",
@@ -8965,5 +8579,85 @@
                 "cb2b5ef700f9d62f"
             ]
         ]
+    },
+    {
+        "id": "01f7da8be7cc003a",
+        "type": "zone-timer",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "zonename": "I1",
+        "zonenametype": "str",
+        "duration": "10m",
+        "durationtype": "str",
+        "program": "78e05c6d467c7326",
+        "onval": "ON",
+        "onvaltype": "str",
+        "offval": "OFF",
+        "offvaltype": "str",
+        "x": 440,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "06d8dda3f0a2f1f4",
+        "type": "inject",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 1760,
+        "wires": [
+            [
+                "01f7da8be7cc003a"
+            ]
+        ]
+    },
+    {
+        "id": "36bdbe96fb7da01f",
+        "type": "zone in",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "zonename": "I1",
+        "program": "78e05c6d467c7326",
+        "x": 490,
+        "y": 1540,
+        "wires": [
+            [
+                "6e3746a1b47ee984"
+            ]
+        ]
+    },
+    {
+        "id": "6e3746a1b47ee984",
+        "type": "debug",
+        "z": "dd53b5c74524e7c3",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 1540,
+        "wires": []
     }
 ]
