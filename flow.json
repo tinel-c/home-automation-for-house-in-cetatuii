@@ -7251,7 +7251,7 @@
         "height": 0,
         "name": "",
         "label": "Trigger time:",
-        "format": "{{msg.payload.myrawdate}}",
+        "format": "{{msg.myrawdate}}",
         "layout": "row-spread",
         "className": "",
         "style": false,
