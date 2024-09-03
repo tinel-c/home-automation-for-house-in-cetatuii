@@ -7180,16 +7180,6 @@
         ]
     },
     {
-        "id": "62a0a7a25f826689",
-        "type": "comment",
-        "z": "dd53b5c74524e7c3",
-        "name": "Automation of irigation system",
-        "info": "",
-        "x": 180,
-        "y": 640,
-        "wires": []
-    },
-    {
         "id": "47450b82d0dacf76",
         "type": "simpletime",
         "z": "dd53b5c74524e7c3",
@@ -7214,11 +7204,10 @@
         "myrawdate": true,
         "mypm": true,
         "x": 480,
-        "y": 720,
+        "y": 820,
         "wires": [
             [
-                "ef7f6b80171ab23d",
-                "6134e1f1ca14df20"
+                "ef7f6b80171ab23d"
             ]
         ]
     },
@@ -7229,15 +7218,16 @@
         "name": "",
         "ontopic": "",
         "offtopic": "",
-        "onpayload": "",
-        "offpayload": "",
+        "onpayload": "ON",
+        "offpayload": "OFF",
         "disabled": false,
         "schedules": [],
-        "x": 270,
-        "y": 780,
+        "x": 230,
+        "y": 940,
         "wires": [
             [
-                "47450b82d0dacf76"
+                "47450b82d0dacf76",
+                "a94bfef720db4ee2"
             ]
         ]
     },
@@ -7250,7 +7240,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Trigger time:",
+        "label": "Last trigger time",
         "format": "{{msg.myrawdate}}",
         "layout": "row-spread",
         "className": "",
@@ -7258,8 +7248,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 670,
-        "y": 720,
+        "x": 740,
+        "y": 820,
         "wires": []
     },
     {
@@ -7284,7 +7274,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 240,
-        "y": 720,
+        "y": 820,
         "wires": [
             [
                 "47450b82d0dacf76"
@@ -7292,20 +7282,126 @@
         ]
     },
     {
-        "id": "6134e1f1ca14df20",
-        "type": "debug",
+        "id": "0bbc0460853b992c",
+        "type": "delay",
         "z": "dd53b5c74524e7c3",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": ".myrawdate",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 640,
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1020,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44546fbc698797c1",
+        "type": "mqtt out",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "topic": "cmnd/pompaApa/Power1",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 1130,
+        "y": 600,
         "wires": []
+    },
+    {
+        "id": "a94bfef720db4ee2",
+        "type": "ui_switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "label": "Pornit auto irigatie",
+        "tooltip": "",
+        "group": "f0ab848c9c25cfc7",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 510,
+        "y": 940,
+        "wires": [
+            [
+                "11d5751eaf5f0540"
+            ]
+        ]
+    },
+    {
+        "id": "cb2b5ef700f9d62f",
+        "type": "ui_text",
+        "z": "dd53b5c74524e7c3",
+        "group": "0363603b3b8b845f",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status automatizare irigatie",
+        "format": "{{msg.myrawdate}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1280,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "11d5751eaf5f0540",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit pompa fantana",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 940,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
     }
 ]
