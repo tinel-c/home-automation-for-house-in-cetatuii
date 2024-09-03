@@ -7546,5 +7546,74 @@
                 "9123c086bc95e806"
             ]
         ]
+    },
+    {
+        "id": "96da86631e2a7f2f",
+        "type": "inject",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 1100,
+        "wires": [
+            [
+                "6d893505dddf40b3"
+            ]
+        ]
+    },
+    {
+        "id": "6d893505dddf40b3",
+        "type": "file",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "filename": "alarm_config.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 570,
+        "y": 1100,
+        "wires": [
+            [
+                "1413d0ecf3ba57ea"
+            ]
+        ]
+    },
+    {
+        "id": "1413d0ecf3ba57ea",
+        "type": "ui_template",
+        "z": "dd53b5c74524e7c3",
+        "group": "341f777e65354665",
+        "name": "Config file",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<h2>CONFIG FILE: alarm_config.csv</h2>\n<pre ng-bind-html=\"msg.payload\"></pre>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 820,
+        "y": 1100,
+        "wires": [
+            []
+        ]
     }
 ]
