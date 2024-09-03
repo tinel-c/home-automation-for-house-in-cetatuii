@@ -7492,7 +7492,7 @@
         "name": "event logger irigatii",
         "alarmTopic": "alarms_topic",
         "eventTopic": "events_topic",
-        "path": "alarm_config.csv",
+        "path": "",
         "isUpdatedConfig": false,
         "isDebug": true,
         "configText": "",
