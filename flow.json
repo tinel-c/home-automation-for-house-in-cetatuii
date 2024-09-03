@@ -7524,14 +7524,14 @@
         "outputs": 0,
         "cts": false,
         "x": 1650,
-        "y": 1000,
+        "y": 880,
         "wires": []
     },
     {
         "id": "3f47e9f5fb523a7e",
         "type": "function",
         "z": "dd53b5c74524e7c3",
-        "name": "function 1",
+        "name": "Persist in Global & Table Interface",
         "func": "const DB_LIMIT = 12;\nconst events = global.get(\"events\") ||\n    (global.set(\"events\", []) || global.get(\"events\"));\n\nif (Array.isArray(msg.payload.toUpdate) && msg.payload.toUpdate.length) {\n    const out = [];\n    for (const newEvent of msg.payload.toUpdate) {\n        for (const event of events) {\n            if (event.eventId === newEvent.eventId && event.d == null) {\n                event.isActive = newEvent.isActive;\n\n                // in seconds\n                event.d = Math.round((Date.now() - event.ts) / 1000);\n                // in hhhh:mm:ss format\n                event.dStr = formatDuration(event.d);\n\n                out.push(event)\n            }\n        }\n    }\n\n\n    node.send([\n        {\n            payload: {\n                command: \"updateOrAddData\",\n                arguments: [out, true]\n            }\n        },\n        { payload: out }\n    ]);\n\n}\n\nif (Array.isArray(msg.payload.toAdd) && msg.payload.toAdd.length) {\n\n    // create event ID for the DB\n    msg.payload.toAdd.forEach(v => {\n        v.id = v.eventId + \"::\" + v.ts\n        if (v.type === \"E\") {\n            v.d = 0\n            v.dStr = \"---\"\n        }\n    });\n\n    events.unshift(...msg.payload.toAdd);\n    node.send({\n        payload: {\n            command: \"addData\",\n            arguments: [msg.payload.toAdd, true]\n        }\n    });\n\n\n    if (events.length > DB_LIMIT) {\n        const deleteIds = events\n            .splice(DB_LIMIT, events.length)\n            .map(v => v.id);\n\n        global.set(\"events\", events);\n        for (const idToDelete of deleteIds) {\n            node.send({\n                payload: {\n                    command: \"deleteRow\",\n                    arguments: [\n                        idToDelete,\n                        true\n                    ],\n                }\n            });\n        }\n    }\n}\n\n\nfunction formatDuration(duration) {\n    if (duration < 60) return duration + \"s\";\n\n    const minutes = duration / 60;\n    if (minutes < 60) {\n        const m = Math.trunc(minutes);\n        const s = duration - m * 60;\n        return m + \":\" + s.toString().padStart(2, \"0\") + \"m\"\n    }\n\n    const hour_row = minutes / 60;\n    const h = Math.trunc(hour_row);\n    const m = Math.trunc((duration - h * 3600) / 60);\n    const s = duration - h * 3600 - m * 60;\n\n    const out = h + \":\" +\n        m.toString().padStart(2, \"0\") + \":\" +\n        s.toString().padStart(2, \"0\") + \"h\";\n    return out\n}",
         "outputs": 1,
         "timeout": 0,
@@ -7539,7 +7539,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1460,
+        "x": 1540,
         "y": 880,
         "wires": [
             [
