@@ -7317,10 +7317,14 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 700,
+        "x": 720,
         "y": 1020,
         "wires": [
-            []
+            [
+                "c576445de1a511f6",
+                "78555224457db8dc",
+                "7e02788257794e5d"
+            ]
         ]
     },
     {
@@ -7337,7 +7341,7 @@
         "correl": "",
         "expiry": "",
         "broker": "73850d9f081d4c01",
-        "x": 1130,
+        "x": 1090,
         "y": 600,
         "wires": []
     },
@@ -7371,7 +7375,9 @@
         "y": 940,
         "wires": [
             [
-                "3e7ed95721dcb4a2"
+                "3e7ed95721dcb4a2",
+                "0bbc0460853b992c",
+                "44546fbc698797c1"
             ]
         ]
     },
@@ -7392,8 +7398,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1280,
-        "y": 800,
+        "x": 1740,
+        "y": 1360,
         "wires": []
     },
     {
@@ -7406,8 +7412,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"Pompa_fantana\":true}",
-                "tot": "json"
+                "to": "Pompa fantana pornita",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -7419,8 +7425,7 @@
         "y": 880,
         "wires": [
             [
-                "cb2b5ef700f9d62f",
-                "87860641856df32d"
+                "cb2b5ef700f9d62f"
             ]
         ]
     },
@@ -7467,8 +7472,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"Pompa_fantana\" : false}",
-                "tot": "json"
+                "to": "Pompa fantana oprita",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -7480,140 +7485,1496 @@
         "y": 940,
         "wires": [
             [
-                "cb2b5ef700f9d62f",
-                "87860641856df32d"
+                "cb2b5ef700f9d62f"
             ]
         ]
     },
     {
-        "id": "87860641856df32d",
-        "type": "cx_alarm_log",
+        "id": "ade8569566317f39",
+        "type": "change",
         "z": "dd53b5c74524e7c3",
-        "name": "event logger irigatii",
-        "alarmTopic": "alarms_topic",
-        "eventTopic": "events_topic",
-        "path": "alarm_config.csv",
-        "isUpdatedConfig": true,
-        "isDebug": true,
-        "configText": "",
-        "isTabSeparator": false,
-        "x": 1210,
-        "y": 880,
-        "wires": [
-            [
-                "3f47e9f5fb523a7e"
-            ],
-            [
-                "3f47e9f5fb523a7e"
-            ],
-            [
-                "3f47e9f5fb523a7e"
-            ]
-        ]
-    },
-    {
-        "id": "9123c086bc95e806",
-        "type": "ui_table",
-        "z": "dd53b5c74524e7c3",
-        "group": "341f777e65354665",
-        "name": "",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "columns": [],
-        "outputs": 0,
-        "cts": false,
-        "x": 1770,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "3f47e9f5fb523a7e",
-        "type": "function",
-        "z": "dd53b5c74524e7c3",
-        "name": "Persist in Global & Table Interface",
-        "func": "const DB_LIMIT = 12;\nconst events = global.get(\"events\") ||\n    (global.set(\"events\", []) || global.get(\"events\"));\n\nif (Array.isArray(msg.payload.toUpdate) && msg.payload.toUpdate.length) {\n    const out = [];\n    for (const newEvent of msg.payload.toUpdate) {\n        for (const event of events) {\n            if (event.eventId === newEvent.eventId && event.d == null) {\n                event.isActive = newEvent.isActive;\n\n                // in seconds\n                event.d = Math.round((Date.now() - event.ts) / 1000);\n                // in hhhh:mm:ss format\n                event.dStr = formatDuration(event.d);\n\n                out.push(event)\n            }\n        }\n    }\n\n\n    node.send([\n        {\n            payload: {\n                command: \"updateOrAddData\",\n                arguments: [out, true]\n            }\n        },\n        { payload: out }\n    ]);\n\n}\n\nif (Array.isArray(msg.payload.toAdd) && msg.payload.toAdd.length) {\n\n    // create event ID for the DB\n    msg.payload.toAdd.forEach(v => {\n        v.id = v.eventId + \"::\" + v.ts\n        if (v.type === \"E\") {\n            v.d = 0\n            v.dStr = \"---\"\n        }\n    });\n\n    events.unshift(...msg.payload.toAdd);\n    node.send({\n        payload: {\n            command: \"addData\",\n            arguments: [msg.payload.toAdd, true]\n        }\n    });\n\n\n    if (events.length > DB_LIMIT) {\n        const deleteIds = events\n            .splice(DB_LIMIT, events.length)\n            .map(v => v.id);\n\n        global.set(\"events\", events);\n        for (const idToDelete of deleteIds) {\n            node.send({\n                payload: {\n                    command: \"deleteRow\",\n                    arguments: [\n                        idToDelete,\n                        true\n                    ],\n                }\n            });\n        }\n    }\n}\n\n\nfunction formatDuration(duration) {\n    if (duration < 60) return duration + \"s\";\n\n    const minutes = duration / 60;\n    if (minutes < 60) {\n        const m = Math.trunc(minutes);\n        const s = duration - m * 60;\n        return m + \":\" + s.toString().padStart(2, \"0\") + \"m\"\n    }\n\n    const hour_row = minutes / 60;\n    const h = Math.trunc(hour_row);\n    const m = Math.trunc((duration - h * 3600) / 60);\n    const s = duration - h * 3600 - m * 60;\n\n    const out = h + \":\" +\n        m.toString().padStart(2, \"0\") + \":\" +\n        s.toString().padStart(2, \"0\") + \"h\";\n    return out\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1540,
-        "y": 880,
-        "wires": [
-            [
-                "9123c086bc95e806"
-            ]
-        ]
-    },
-    {
-        "id": "96da86631e2a7f2f",
-        "type": "inject",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "props": [
+        "name": "Pornit 24V ",
+        "rules": [
             {
-                "p": "payload"
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit 24V",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 960,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "c576445de1a511f6",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
             },
             {
-                "p": "topic",
+                "t": "eq",
+                "v": "OFF",
                 "vt": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 220,
-        "y": 1100,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 1020,
         "wires": [
             [
-                "6d893505dddf40b3"
+                "ade8569566317f39"
+            ],
+            [
+                "cebae2bdfae6b97b"
             ]
         ]
     },
     {
-        "id": "6d893505dddf40b3",
-        "type": "file",
+        "id": "cebae2bdfae6b97b",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit 24V ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit 24V",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 1020,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "78555224457db8dc",
+        "type": "trigger",
         "z": "dd53b5c74524e7c3",
         "name": "",
-        "filename": "alarm_config.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "utf8",
-        "x": 570,
-        "y": 1100,
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1120,
         "wires": [
             [
-                "1413d0ecf3ba57ea"
+                "8f448cc2c35c23bb",
+                "1f9279fc512f8094",
+                "47afa61171190b60"
             ]
         ]
     },
     {
-        "id": "1413d0ecf3ba57ea",
-        "type": "ui_template",
+        "id": "8f448cc2c35c23bb",
+        "type": "link out",
         "z": "dd53b5c74524e7c3",
-        "group": "341f777e65354665",
-        "name": "Config file",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<h2>CONFIG FILE: alarm_config.csv</h2>\n<pre ng-bind-html=\"msg.payload\"></pre>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 820,
+        "name": "I1",
+        "mode": "link",
+        "links": [
+            "d8c20da0eb6f7cc1"
+        ],
+        "x": 1075,
         "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "d8c20da0eb6f7cc1",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I1",
+        "links": [
+            "8f448cc2c35c23bb"
+        ],
+        "x": 865,
+        "y": 40,
+        "wires": [
+            [
+                "e6d3dbd6923ad8e9"
+            ]
+        ]
+    },
+    {
+        "id": "1f9279fc512f8094",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 1200,
+        "wires": [
+            [
+                "8c4c0ad898919556"
+            ]
+        ]
+    },
+    {
+        "id": "8c4c0ad898919556",
+        "type": "trigger",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1200,
+        "wires": [
+            [
+                "bc29790f107638ac",
+                "c46ace98ce225802",
+                "09b274f82d9d6503"
+            ]
+        ]
+    },
+    {
+        "id": "bc29790f107638ac",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I2",
+        "mode": "link",
+        "links": [
+            "d3d0af1969195b53"
+        ],
+        "x": 1065,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "d3d0af1969195b53",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I2",
+        "links": [
+            "bc29790f107638ac"
+        ],
+        "x": 865,
+        "y": 80,
+        "wires": [
+            [
+                "2c24cf793692678b"
+            ]
+        ]
+    },
+    {
+        "id": "956f78744c0aa353",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I3",
+        "links": [
+            "7553d17571f3ceb0"
+        ],
+        "x": 865,
+        "y": 120,
+        "wires": [
+            [
+                "f05bcb22593670e7"
+            ]
+        ]
+    },
+    {
+        "id": "d79234c25daf72ad",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I4",
+        "links": [
+            "3971b2ef0de10474"
+        ],
+        "x": 865,
+        "y": 160,
+        "wires": [
+            [
+                "d9567dbf2e9926a9"
+            ]
+        ]
+    },
+    {
+        "id": "17b81b3bd18e26f2",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I5",
+        "links": [
+            "fbe4b184bd6ac1c4"
+        ],
+        "x": 865,
+        "y": 200,
+        "wires": [
+            [
+                "d240239bd76c754c"
+            ]
+        ]
+    },
+    {
+        "id": "94b5b1d3108e2827",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I6",
+        "links": [
+            "a7e9072620affafe"
+        ],
+        "x": 865,
+        "y": 240,
+        "wires": [
+            [
+                "963675f364b6f126"
+            ]
+        ]
+    },
+    {
+        "id": "dcb5df8be2099a5f",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I7",
+        "links": [
+            "12a90f0a01aa39f1"
+        ],
+        "x": 865,
+        "y": 280,
+        "wires": [
+            [
+                "07310c155ed61583"
+            ]
+        ]
+    },
+    {
+        "id": "5b902d548e01aab7",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I8",
+        "links": [
+            "b4e2d0b0ad7140b1"
+        ],
+        "x": 865,
+        "y": 320,
+        "wires": [
+            [
+                "a3be68c5fa64b084"
+            ]
+        ]
+    },
+    {
+        "id": "d9b69afc10734906",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I9",
+        "links": [],
+        "x": 865,
+        "y": 360,
+        "wires": [
+            [
+                "43719fc6761ff94b"
+            ]
+        ]
+    },
+    {
+        "id": "f7e85b38934017fe",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I10",
+        "links": [],
+        "x": 865,
+        "y": 400,
+        "wires": [
+            [
+                "7192f8a02af696d8"
+            ]
+        ]
+    },
+    {
+        "id": "edfcd385602e4adc",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I11",
+        "links": [],
+        "x": 865,
+        "y": 440,
+        "wires": [
+            [
+                "ee35f6acdbcac244"
+            ]
+        ]
+    },
+    {
+        "id": "11e21586609a555b",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "I12",
+        "links": [],
+        "x": 865,
+        "y": 480,
+        "wires": [
+            [
+                "5e8420025ab57f3a"
+            ]
+        ]
+    },
+    {
+        "id": "aab540ef1b048d52",
+        "type": "link in",
+        "z": "dd53b5c74524e7c3",
+        "name": "Power",
+        "links": [
+            "7e02788257794e5d"
+        ],
+        "x": 865,
+        "y": 520,
+        "wires": [
+            [
+                "1f319ab97d4b61a3"
+            ]
+        ]
+    },
+    {
+        "id": "7e02788257794e5d",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I1",
+        "mode": "link",
+        "links": [
+            "aab540ef1b048d52"
+        ],
+        "x": 875,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "c46ace98ce225802",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 1260,
+        "wires": [
+            [
+                "f5f3f0e583590f80"
+            ]
+        ]
+    },
+    {
+        "id": "f5f3f0e583590f80",
+        "type": "trigger",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1260,
+        "wires": [
+            [
+                "7553d17571f3ceb0",
+                "19a50dd0aa3b6ceb",
+                "3fda499df6fac1b5"
+            ]
+        ]
+    },
+    {
+        "id": "7553d17571f3ceb0",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I3",
+        "mode": "link",
+        "links": [
+            "956f78744c0aa353"
+        ],
+        "x": 1065,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "19a50dd0aa3b6ceb",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 1320,
+        "wires": [
+            [
+                "c8b0a254b751990f"
+            ]
+        ]
+    },
+    {
+        "id": "c8b0a254b751990f",
+        "type": "trigger",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1320,
+        "wires": [
+            [
+                "3971b2ef0de10474",
+                "5338cfe7b2eb177d",
+                "df7f7005d74c102e"
+            ]
+        ]
+    },
+    {
+        "id": "3971b2ef0de10474",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I4",
+        "mode": "link",
+        "links": [
+            "d79234c25daf72ad"
+        ],
+        "x": 1065,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "5338cfe7b2eb177d",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 1380,
+        "wires": [
+            [
+                "81231e835b24c770"
+            ]
+        ]
+    },
+    {
+        "id": "81231e835b24c770",
+        "type": "trigger",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1380,
+        "wires": [
+            [
+                "fbe4b184bd6ac1c4",
+                "aae0d1ee4e1f7b3b",
+                "520460f649a9e310"
+            ]
+        ]
+    },
+    {
+        "id": "fbe4b184bd6ac1c4",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I5",
+        "mode": "link",
+        "links": [
+            "17b81b3bd18e26f2"
+        ],
+        "x": 1055,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "aae0d1ee4e1f7b3b",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 1440,
+        "wires": [
+            [
+                "38f7bbee7b3a73e5"
+            ]
+        ]
+    },
+    {
+        "id": "38f7bbee7b3a73e5",
+        "type": "trigger",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1440,
+        "wires": [
+            [
+                "a7e9072620affafe",
+                "115b8c52ecc10397",
+                "cf0397a001cf76c2"
+            ]
+        ]
+    },
+    {
+        "id": "a7e9072620affafe",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I6",
+        "mode": "link",
+        "links": [
+            "94b5b1d3108e2827"
+        ],
+        "x": 1055,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "115b8c52ecc10397",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 1500,
+        "wires": [
+            [
+                "03c1a5f06c61136d"
+            ]
+        ]
+    },
+    {
+        "id": "03c1a5f06c61136d",
+        "type": "trigger",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1500,
+        "wires": [
+            [
+                "12a90f0a01aa39f1",
+                "e35152cc210ada42",
+                "18375a5ce75f5cda"
+            ]
+        ]
+    },
+    {
+        "id": "12a90f0a01aa39f1",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I7",
+        "mode": "link",
+        "links": [
+            "dcb5df8be2099a5f"
+        ],
+        "x": 1065,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "e35152cc210ada42",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 1560,
+        "wires": [
+            [
+                "0640f244db73681e"
+            ]
+        ]
+    },
+    {
+        "id": "0640f244db73681e",
+        "type": "trigger",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "10",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "OFF",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 910,
+        "y": 1560,
+        "wires": [
+            [
+                "b4e2d0b0ad7140b1",
+                "ac27992f7a7b1d02"
+            ]
+        ]
+    },
+    {
+        "id": "b4e2d0b0ad7140b1",
+        "type": "link out",
+        "z": "dd53b5c74524e7c3",
+        "name": "I8",
+        "mode": "link",
+        "links": [
+            "5b902d548e01aab7"
+        ],
+        "x": 1065,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "426b138b1601d7a0",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1080,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "47afa61171190b60",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1120,
+        "wires": [
+            [
+                "426b138b1601d7a0"
+            ],
+            [
+                "432ddde70b00fd49"
+            ]
+        ]
+    },
+    {
+        "id": "432ddde70b00fd49",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1120,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "0e1ac461825264df",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1160,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "09b274f82d9d6503",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1200,
+        "wires": [
+            [
+                "0e1ac461825264df"
+            ],
+            [
+                "2942aaab75ca5494"
+            ]
+        ]
+    },
+    {
+        "id": "2942aaab75ca5494",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1200,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "a7c370b75bbc92eb",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1240,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "3fda499df6fac1b5",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1280,
+        "wires": [
+            [
+                "a7c370b75bbc92eb"
+            ],
+            [
+                "11b8d014463237aa"
+            ]
+        ]
+    },
+    {
+        "id": "11b8d014463237aa",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1280,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "e1b2f4fe904407e7",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1320,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "df7f7005d74c102e",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1360,
+        "wires": [
+            [
+                "e1b2f4fe904407e7"
+            ],
+            [
+                "dcce92cf4f3598dd"
+            ]
+        ]
+    },
+    {
+        "id": "dcce92cf4f3598dd",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1360,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "838f4deac848ec2b",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I6",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I6",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1480,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "cf0397a001cf76c2",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1520,
+        "wires": [
+            [
+                "838f4deac848ec2b"
+            ],
+            [
+                "6109902bef541957"
+            ]
+        ]
+    },
+    {
+        "id": "6109902bef541957",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I6",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I6",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1520,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "e033aa55ecf2a6e5",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I7",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I7",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1560,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "18375a5ce75f5cda",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1600,
+        "wires": [
+            [
+                "e033aa55ecf2a6e5"
+            ],
+            [
+                "70950e23982c6c9d"
+            ]
+        ]
+    },
+    {
+        "id": "70950e23982c6c9d",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I7",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I7",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1600,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "12c3ddf38ba1fb3e",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1640,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "ac27992f7a7b1d02",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1680,
+        "wires": [
+            [
+                "12c3ddf38ba1fb3e"
+            ],
+            [
+                "f0997861c29e7a20"
+            ]
+        ]
+    },
+    {
+        "id": "f0997861c29e7a20",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1680,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "4e1ee3c17d57d950",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Pornit I5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Pornit I5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1400,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
+        ]
+    },
+    {
+        "id": "520460f649a9e310",
+        "type": "switch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1440,
+        "wires": [
+            [
+                "4e1ee3c17d57d950"
+            ],
+            [
+                "ba6922f06184b319"
+            ]
+        ]
+    },
+    {
+        "id": "ba6922f06184b319",
+        "type": "change",
+        "z": "dd53b5c74524e7c3",
+        "name": "Oprit I5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Oprit I5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1440,
+        "wires": [
+            [
+                "cb2b5ef700f9d62f"
+            ]
         ]
     }
 ]
