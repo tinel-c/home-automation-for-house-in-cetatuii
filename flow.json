@@ -8587,7 +8587,7 @@
         "name": "",
         "zonename": "I1",
         "zonenametype": "str",
-        "duration": "10m",
+        "duration": "10s",
         "durationtype": "str",
         "program": "78e05c6d467c7326",
         "onval": "ON",
