@@ -281,6 +281,25 @@
         "className": ""
     },
     {
+        "id": "d41ea2df2f0e7d81",
+        "type": "ui_tab",
+        "name": "Logging",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "341f777e65354665",
+        "type": "ui_group",
+        "name": "Irigatie",
+        "tab": "d41ea2df2f0e7d81",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "8458b627e04d268c",
         "type": "mqtt in",
         "z": "df2ec36c3dbdb923",
@@ -7400,7 +7419,8 @@
         "y": 880,
         "wires": [
             [
-                "cb2b5ef700f9d62f"
+                "cb2b5ef700f9d62f",
+                "87860641856df32d"
             ]
         ]
     },
@@ -7460,8 +7480,51 @@
         "y": 940,
         "wires": [
             [
-                "cb2b5ef700f9d62f"
+                "cb2b5ef700f9d62f",
+                "87860641856df32d"
             ]
         ]
+    },
+    {
+        "id": "87860641856df32d",
+        "type": "cx_alarm_log",
+        "z": "dd53b5c74524e7c3",
+        "name": "event logger irigatii",
+        "alarmTopic": "",
+        "eventTopic": "",
+        "path": "",
+        "isUpdatedConfig": false,
+        "isDebug": false,
+        "configText": "",
+        "isTabSeparator": false,
+        "x": 1210,
+        "y": 880,
+        "wires": [
+            [
+                "9123c086bc95e806"
+            ],
+            [
+                "9123c086bc95e806"
+            ],
+            [
+                "9123c086bc95e806"
+            ]
+        ]
+    },
+    {
+        "id": "9123c086bc95e806",
+        "type": "ui_table",
+        "z": "dd53b5c74524e7c3",
+        "group": "341f777e65354665",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1390,
+        "y": 860,
+        "wires": []
     }
 ]
