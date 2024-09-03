@@ -7178,5 +7178,116 @@
                 "1f319ab97d4b61a3"
             ]
         ]
+    },
+    {
+        "id": "62a0a7a25f826689",
+        "type": "comment",
+        "z": "dd53b5c74524e7c3",
+        "name": "Automation of irigation system",
+        "info": "",
+        "x": 180,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "47450b82d0dacf76",
+        "type": "simpletime",
+        "z": "dd53b5c74524e7c3",
+        "name": "Print time",
+        "mydate": true,
+        "myymd": true,
+        "myyear": true,
+        "mymonth": true,
+        "mymonthn": true,
+        "mydom": true,
+        "mydoy": true,
+        "myday": true,
+        "myhourpm": true,
+        "myhour": true,
+        "mytime": true,
+        "mytimes": true,
+        "myminute": true,
+        "myminutes": true,
+        "mysecond": true,
+        "mymillis": true,
+        "myepoch": true,
+        "myrawdate": true,
+        "mypm": true,
+        "x": 480,
+        "y": 720,
+        "wires": [
+            [
+                "ef7f6b80171ab23d"
+            ]
+        ]
+    },
+    {
+        "id": "3f407933e7380592",
+        "type": "timerswitch",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "ontopic": "",
+        "offtopic": "",
+        "onpayload": "",
+        "offpayload": "",
+        "disabled": false,
+        "schedules": [],
+        "x": 270,
+        "y": 780,
+        "wires": [
+            [
+                "47450b82d0dacf76"
+            ]
+        ]
+    },
+    {
+        "id": "ef7f6b80171ab23d",
+        "type": "ui_text",
+        "z": "dd53b5c74524e7c3",
+        "group": "0363603b3b8b845f",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Trigger time:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 670,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "10d9b478e039d915",
+        "type": "inject",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 720,
+        "wires": [
+            [
+                "47450b82d0dacf76"
+            ]
+        ]
     }
 ]
