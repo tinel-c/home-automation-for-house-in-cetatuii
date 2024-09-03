@@ -7585,8 +7585,8 @@
         "filenameType": "str",
         "appendNewline": true,
         "createDir": false,
-        "overwriteFile": "true",
-        "encoding": "none",
+        "overwriteFile": "false",
+        "encoding": "utf8",
         "x": 570,
         "y": 1100,
         "wires": [
