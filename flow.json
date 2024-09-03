@@ -8689,12 +8689,10 @@
         "onvaltype": "str",
         "offval": "OFF",
         "offvaltype": "str",
-        "x": 500,
+        "x": 720,
         "y": 1740,
         "wires": [
-            [
-                "eab72a4fe1456395"
-            ]
+            []
         ]
     },
     {
@@ -8711,62 +8709,10 @@
         "onvaltype": "str",
         "offval": "OFF",
         "offvaltype": "str",
-        "x": 520,
+        "x": 720,
         "y": 1800,
         "wires": [
-            [
-                "4f92d91add93cc11"
-            ]
-        ]
-    },
-    {
-        "id": "eab72a4fe1456395",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 700,
-        "y": 1740,
-        "wires": [
-            [
-                "e8a33e57534b93ce"
-            ]
-        ]
-    },
-    {
-        "id": "4f92d91add93cc11",
-        "type": "delay",
-        "z": "dd53b5c74524e7c3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 700,
-        "y": 1800,
-        "wires": [
-            [
-                "01f7da8be7cc003a"
-            ]
+            []
         ]
     },
     {
@@ -9105,7 +9051,9 @@
         "y": 1740,
         "wires": [
             [
-                "7aebbe8bce4d3e5b"
+                "7aebbe8bce4d3e5b",
+                "3b0e511aaeeab2e3",
+                "dca7f49ccccfd0a9"
             ]
         ]
     },
@@ -9268,6 +9216,56 @@
             [
                 "7e02788257794e5d",
                 "c576445de1a511f6"
+            ]
+        ]
+    },
+    {
+        "id": "3b0e511aaeeab2e3",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1800,
+        "wires": [
+            [
+                "e8a33e57534b93ce"
+            ]
+        ]
+    },
+    {
+        "id": "dca7f49ccccfd0a9",
+        "type": "delay",
+        "z": "dd53b5c74524e7c3",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 1880,
+        "wires": [
+            [
+                "01f7da8be7cc003a"
             ]
         ]
     }
