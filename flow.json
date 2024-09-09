@@ -289,14 +289,6 @@
         "className": ""
     },
     {
-        "id": "d41ea2df2f0e7d81",
-        "type": "ui_tab",
-        "name": "Logging",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "78e05c6d467c7326",
         "type": "program",
         "name": "Lawn"
