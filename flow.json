@@ -9482,7 +9482,7 @@
         "links": [
             "15e69a900ef908cc"
         ],
-        "x": 1305,
+        "x": 1465,
         "y": 360,
         "wires": []
     },
@@ -9492,7 +9492,7 @@
         "z": "8becda4e1ec6a8b9",
         "name": "SMS number",
         "info": "",
-        "x": 1130,
+        "x": 1290,
         "y": 300,
         "wires": []
     },
@@ -9502,7 +9502,7 @@
         "z": "8becda4e1ec6a8b9",
         "name": "SMS text",
         "info": "",
-        "x": 1200,
+        "x": 1360,
         "y": 420,
         "wires": []
     },
@@ -9515,7 +9515,7 @@
         "links": [
             "8977841dd02a173c"
         ],
-        "x": 1305,
+        "x": 1465,
         "y": 480,
         "wires": []
     },
@@ -9538,7 +9538,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
+        "x": 1330,
         "y": 360,
         "wires": [
             [
@@ -9583,6 +9583,13 @@
                 "pt": "msg",
                 "to": "Main gate online",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -9590,8 +9597,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 340,
+        "x": 860,
+        "y": 240,
         "wires": [
             [
                 "32554a2c146b4f0a",
@@ -9611,6 +9618,13 @@
                 "pt": "msg",
                 "to": "Main gate offline",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -9618,8 +9632,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 380,
+        "x": 860,
+        "y": 280,
         "wires": [
             [
                 "32554a2c146b4f0a",
@@ -9649,8 +9663,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 610,
-        "y": 360,
+        "x": 690,
+        "y": 260,
         "wires": [
             [
                 "af201997ccbd713c"
