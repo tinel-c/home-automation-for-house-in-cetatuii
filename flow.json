@@ -9405,7 +9405,7 @@
         "name": "Main gate - status sent each minute",
         "info": "",
         "x": 200,
-        "y": 40,
+        "y": 160,
         "wires": []
     },
     {
@@ -9422,7 +9422,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 120,
+        "y": 240,
         "wires": [
             [
                 "02f6a66607561a68"
@@ -9447,7 +9447,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 490,
-        "y": 120,
+        "y": 240,
         "wires": [
             [
                 "da361ea3d9068d10"
@@ -9472,7 +9472,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 690,
-        "y": 120,
+        "y": 240,
         "wires": [
             [
                 "4eb12d60a99de281"
@@ -9520,7 +9520,7 @@
         "to": "",
         "reg": false,
         "x": 1040,
-        "y": 100,
+        "y": 220,
         "wires": [
             [
                 "464516bc4861d681"
@@ -9568,7 +9568,7 @@
         "to": "",
         "reg": false,
         "x": 1040,
-        "y": 140,
+        "y": 260,
         "wires": [
             [
                 "464516bc4861d681"
@@ -9598,7 +9598,7 @@
         "repair": false,
         "outputs": 2,
         "x": 870,
-        "y": 120,
+        "y": 240,
         "wires": [
             [
                 "af201997ccbd713c"
@@ -9620,6 +9620,46 @@
         "y": 640,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "8f32b9b267dd50ef",
+        "type": "inject",
+        "z": "8becda4e1ec6a8b9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "payload.content",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "payload.type",
+                "v": "payload.type",
+                "vt": "str"
+            },
+            {
+                "p": "payload.chatId",
+                "v": "991635368",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "464516bc4861d681"
+            ]
         ]
     }
 ]
