@@ -9751,7 +9751,7 @@
         "z": "8becda4e1ec6a8b9",
         "name": "",
         "pauseType": "delay",
-        "timeout": "10",
+        "timeout": "100",
         "timeoutUnits": "milliseconds",
         "rate": "1",
         "nbRateUnits": "1",
