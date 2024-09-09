@@ -9468,81 +9468,7 @@
         "wires": [
             [
                 "50b62ae013fec830",
-                "adcc34be92d41cc3",
                 "da361ea3d9068d10"
-            ]
-        ]
-    },
-    {
-        "id": "3f2233e3012f3831",
-        "type": "link out",
-        "z": "8becda4e1ec6a8b9",
-        "name": "SMS number",
-        "mode": "link",
-        "links": [
-            "15e69a900ef908cc"
-        ],
-        "x": 1465,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "bd285c9de15f5888",
-        "type": "comment",
-        "z": "8becda4e1ec6a8b9",
-        "name": "SMS number",
-        "info": "",
-        "x": 1290,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "2cd5264a7f20567d",
-        "type": "comment",
-        "z": "8becda4e1ec6a8b9",
-        "name": "SMS text",
-        "info": "",
-        "x": 1360,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "32554a2c146b4f0a",
-        "type": "link out",
-        "z": "8becda4e1ec6a8b9",
-        "name": "SMS text",
-        "mode": "link",
-        "links": [
-            "8977841dd02a173c"
-        ],
-        "x": 1465,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "adcc34be92d41cc3",
-        "type": "change",
-        "z": "8becda4e1ec6a8b9",
-        "name": "0740244845",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0740244845",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1330,
-        "y": 360,
-        "wires": [
-            [
-                "3f2233e3012f3831"
             ]
         ]
     },
@@ -9581,14 +9507,21 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Main gate online",
-                "tot": "str"
+                "to": "{}",
+                "tot": "json"
             },
             {
                 "t": "set",
                 "p": "payload.type",
                 "pt": "msg",
                 "to": "message",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "Main gate online",
                 "tot": "str"
             }
         ],
@@ -9601,7 +9534,6 @@
         "y": 240,
         "wires": [
             [
-                "32554a2c146b4f0a",
                 "464516bc4861d681"
             ]
         ]
@@ -9616,7 +9548,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "Main gate offline",
+                "to": "{}",
                 "tot": "str"
             },
             {
@@ -9624,6 +9556,13 @@
                 "p": "payload.type",
                 "pt": "msg",
                 "to": "message",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "Main gate offline",
                 "tot": "str"
             }
         ],
@@ -9636,7 +9575,6 @@
         "y": 280,
         "wires": [
             [
-                "32554a2c146b4f0a",
                 "464516bc4861d681"
             ]
         ]
@@ -9683,7 +9621,7 @@
         "haserroroutput": false,
         "outputs": 1,
         "x": 1220,
-        "y": 200,
+        "y": 260,
         "wires": [
             []
         ]
