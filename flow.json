@@ -9523,6 +9523,13 @@
                 "pt": "msg",
                 "to": "Main gate online",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -9564,6 +9571,13 @@
                 "pt": "msg",
                 "to": "Main gate offline",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -9620,8 +9634,8 @@
         "bot": "fcd48adffba5ec7c",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1220,
-        "y": 260,
+        "x": 1400,
+        "y": 500,
         "wires": [
             []
         ]
