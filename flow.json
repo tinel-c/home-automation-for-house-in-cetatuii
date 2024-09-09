@@ -294,6 +294,32 @@
         "name": "Lawn"
     },
     {
+        "id": "fcd48adffba5ec7c",
+        "type": "telegram bot",
+        "botname": "LuncaCetatuiiAutomationBot_bot",
+        "usernames": "tinel_c",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
         "id": "8458b627e04d268c",
         "type": "mqtt in",
         "z": "df2ec36c3dbdb923",
@@ -9568,7 +9594,8 @@
         "y": 340,
         "wires": [
             [
-                "32554a2c146b4f0a"
+                "32554a2c146b4f0a",
+                "464516bc4861d681"
             ]
         ]
     },
@@ -9595,7 +9622,8 @@
         "y": 380,
         "wires": [
             [
-                "32554a2c146b4f0a"
+                "32554a2c146b4f0a",
+                "464516bc4861d681"
             ]
         ]
     },
@@ -9630,6 +9658,20 @@
             [
                 "ebe4e9ebed77e50d"
             ]
+        ]
+    },
+    {
+        "id": "464516bc4861d681",
+        "type": "telegram sender",
+        "z": "8becda4e1ec6a8b9",
+        "name": "LuncaCetatuiiAutomatioBot",
+        "bot": "fcd48adffba5ec7c",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 200,
+        "wires": [
+            []
         ]
     }
 ]
