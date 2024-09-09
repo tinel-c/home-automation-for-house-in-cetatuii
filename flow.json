@@ -9626,25 +9626,25 @@
         "id": "8f32b9b267dd50ef",
         "type": "inject",
         "z": "8becda4e1ec6a8b9",
-        "name": "",
+        "name": "Send timestamp on start node red",
         "props": [
             {
                 "p": "payload"
             },
             {
-                "p": "payload.content",
-                "v": "",
-                "vt": "date"
-            },
-            {
-                "p": "payload.type",
-                "v": "payload.type",
-                "vt": "str"
-            },
-            {
                 "p": "payload.chatId",
                 "v": "991635368",
                 "vt": "num"
+            },
+            {
+                "p": "payload.type",
+                "v": "message",
+                "vt": "str"
+            },
+            {
+                "p": "payload.content",
+                "v": "",
+                "vt": "date"
             }
         ],
         "repeat": "",
@@ -9654,7 +9654,7 @@
         "topic": "",
         "payload": "{}",
         "payloadType": "json",
-        "x": 110,
+        "x": 200,
         "y": 80,
         "wires": [
             [
