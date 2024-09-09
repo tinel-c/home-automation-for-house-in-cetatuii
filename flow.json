@@ -72,6 +72,14 @@
         "env": []
     },
     {
+        "id": "8becda4e1ec6a8b9",
+        "type": "tab",
+        "label": "Watchdogs",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "73850d9f081d4c01",
         "type": "mqtt-broker",
         "name": "mqtt local",
@@ -9338,5 +9346,52 @@
                 "b8dfed2ac23f1add"
             ]
         ]
+    },
+    {
+        "id": "8205ab7f9a6d39a2",
+        "type": "comment",
+        "z": "8becda4e1ec6a8b9",
+        "name": "Main gate",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ac73910a1a33b287",
+        "type": "mqtt in",
+        "z": "8becda4e1ec6a8b9",
+        "name": "",
+        "topic": "MainGate/STAT/reccurentStatusRelay4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 120,
+        "wires": [
+            [
+                "50b62ae013fec830"
+            ]
+        ]
+    },
+    {
+        "id": "50b62ae013fec830",
+        "type": "debug",
+        "z": "8becda4e1ec6a8b9",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 120,
+        "wires": []
     }
 ]
