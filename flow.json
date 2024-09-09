@@ -9405,7 +9405,7 @@
         "name": "Main gate - status sent each minute",
         "info": "",
         "x": 200,
-        "y": 160,
+        "y": 140,
         "wires": []
     },
     {
@@ -9422,10 +9422,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 240,
+        "y": 200,
         "wires": [
             [
-                "ffe627bc9e3eca24"
+                "02f6a66607561a68"
             ]
         ]
     },
@@ -9439,15 +9439,15 @@
         "op1type": "str",
         "op2type": "str",
         "duration": "3",
-        "extend": false,
+        "extend": true,
         "overrideDelay": false,
         "units": "min",
-        "reset": "\"Relay 4 OFF\"",
+        "reset": "",
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
         "x": 690,
-        "y": 240,
+        "y": 200,
         "wires": [
             [
                 "4eb12d60a99de281"
@@ -9495,7 +9495,7 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 220,
+        "y": 180,
         "wires": [
             [
                 "464516bc4861d681"
@@ -9543,7 +9543,7 @@
         "to": "",
         "reg": false,
         "x": 1000,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
                 "464516bc4861d681"
@@ -9573,7 +9573,7 @@
         "repair": false,
         "outputs": 2,
         "x": 830,
-        "y": 240,
+        "y": 200,
         "wires": [
             [
                 "af201997ccbd713c"
@@ -9784,10 +9784,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 170,
-        "y": 500,
+        "y": 320,
         "wires": [
             [
-                "c01089190387e363"
+                "06774648db909fe1"
             ]
         ]
     },
@@ -9797,8 +9797,8 @@
         "z": "8becda4e1ec6a8b9",
         "name": "Irigation state - status sent each 5 minutes",
         "info": "",
-        "x": 200,
-        "y": 420,
+        "x": 220,
+        "y": 260,
         "wires": []
     },
     {
@@ -9811,7 +9811,7 @@
         "op1type": "str",
         "op2type": "str",
         "duration": "11",
-        "extend": false,
+        "extend": true,
         "overrideDelay": false,
         "units": "min",
         "reset": "\"Relay 4 OFF\"",
@@ -9819,7 +9819,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 650,
-        "y": 500,
+        "y": 320,
         "wires": [
             [
                 "ba6944dda3fb5810"
@@ -9867,7 +9867,7 @@
         "to": "",
         "reg": false,
         "x": 1020,
-        "y": 480,
+        "y": 300,
         "wires": [
             [
                 "464516bc4861d681"
@@ -9915,7 +9915,7 @@
         "to": "",
         "reg": false,
         "x": 1020,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "464516bc4861d681"
@@ -9945,7 +9945,7 @@
         "repair": false,
         "outputs": 2,
         "x": 830,
-        "y": 500,
+        "y": 320,
         "wires": [
             [
                 "dfbb7f13010b5657"
@@ -9969,10 +9969,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 720,
+        "y": 440,
         "wires": [
             [
-                "9d5a64baacb7d49b"
+                "ede704acc60d9212"
             ]
         ]
     },
@@ -9986,7 +9986,7 @@
         "op1type": "str",
         "op2type": "str",
         "duration": "11",
-        "extend": false,
+        "extend": true,
         "overrideDelay": false,
         "units": "min",
         "reset": "\"Relay 4 OFF\"",
@@ -9994,7 +9994,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 650,
-        "y": 720,
+        "y": 440,
         "wires": [
             [
                 "7fe833bce1c879fc"
@@ -10042,7 +10042,7 @@
         "to": "",
         "reg": false,
         "x": 1020,
-        "y": 700,
+        "y": 420,
         "wires": [
             [
                 "464516bc4861d681"
@@ -10090,7 +10090,7 @@
         "to": "",
         "reg": false,
         "x": 1020,
-        "y": 740,
+        "y": 460,
         "wires": [
             [
                 "464516bc4861d681"
@@ -10120,7 +10120,7 @@
         "repair": false,
         "outputs": 2,
         "x": 830,
-        "y": 720,
+        "y": 440,
         "wires": [
             [
                 "ded181b72a884465"
@@ -10136,89 +10136,8 @@
         "z": "8becda4e1ec6a8b9",
         "name": "Irigation pump - status sent each 5 minutes",
         "info": "",
-        "x": 200,
-        "y": 640,
+        "x": 220,
+        "y": 380,
         "wires": []
-    },
-    {
-        "id": "ffe627bc9e3eca24",
-        "type": "change",
-        "z": "8becda4e1ec6a8b9",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "reset",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 240,
-        "wires": [
-            [
-                "02f6a66607561a68"
-            ]
-        ]
-    },
-    {
-        "id": "c01089190387e363",
-        "type": "change",
-        "z": "8becda4e1ec6a8b9",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "reset",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 440,
-        "y": 500,
-        "wires": [
-            [
-                "06774648db909fe1"
-            ]
-        ]
-    },
-    {
-        "id": "9d5a64baacb7d49b",
-        "type": "change",
-        "z": "8becda4e1ec6a8b9",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "reset",
-                "pt": "msg",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 440,
-        "y": 720,
-        "wires": [
-            [
-                "ede704acc60d9212"
-            ]
-        ]
     }
 ]
