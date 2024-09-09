@@ -9374,7 +9374,8 @@
         "y": 120,
         "wires": [
             [
-                "50b62ae013fec830"
+                "50b62ae013fec830",
+                "02f6a66607561a68"
             ]
         ]
     },
@@ -9390,8 +9391,33 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 740,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "02f6a66607561a68",
+        "type": "trigger",
+        "z": "8becda4e1ec6a8b9",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "2",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "\"Relay 4 OFF\"",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "50b62ae013fec830"
+            ]
+        ]
     }
 ]
