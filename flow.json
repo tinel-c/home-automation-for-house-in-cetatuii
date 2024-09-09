@@ -9538,7 +9538,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "to": "{}",
-                "tot": "str"
+                "tot": "json"
             },
             {
                 "t": "set",
@@ -9794,5 +9794,34 @@
                 "e6da9605823e71c2"
             ]
         ]
+    },
+    {
+        "id": "1fa28458e65fa8bf",
+        "type": "mqtt in",
+        "z": "8becda4e1ec6a8b9",
+        "name": "",
+        "topic": "tele/IrigationSystem/STATE",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "73850d9f081d4c01",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e158851f577e880b",
+        "type": "comment",
+        "z": "8becda4e1ec6a8b9",
+        "name": "Irigation state - status sent each 5 minutes",
+        "info": "",
+        "x": 200,
+        "y": 420,
+        "wires": []
     }
 ]
