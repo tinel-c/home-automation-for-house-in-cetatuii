@@ -9704,8 +9704,8 @@
                 "t": "set",
                 "p": "payload.content",
                 "pt": "msg",
-                "to": "{msg.myrawdate}",
-                "tot": "str"
+                "to": "myrawdate",
+                "tot": "msg"
             }
         ],
         "action": "",
