@@ -9690,7 +9690,8 @@
         "y": 80,
         "wires": [
             [
-                "e6da9605823e71c2"
+                "f1c0c159e349f4c8",
+                "07b1c8b22701f66b"
             ]
         ]
     },
@@ -9713,11 +9714,84 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 690,
+        "x": 930,
         "y": 80,
         "wires": [
             [
                 "464516bc4861d681"
+            ]
+        ]
+    },
+    {
+        "id": "f1c0c159e349f4c8",
+        "type": "change",
+        "z": "8becda4e1ec6a8b9",
+        "name": "Node red online",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "Node red online date:",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "991635368",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 40,
+        "wires": [
+            [
+                "464516bc4861d681"
+            ]
+        ]
+    },
+    {
+        "id": "07b1c8b22701f66b",
+        "type": "delay",
+        "z": "8becda4e1ec6a8b9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 80,
+        "wires": [
+            [
+                "e6da9605823e71c2"
             ]
         ]
     }
