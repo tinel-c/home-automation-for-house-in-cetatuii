@@ -9658,6 +9658,65 @@
         "y": 80,
         "wires": [
             [
+                "6aed69a89f487a86"
+            ]
+        ]
+    },
+    {
+        "id": "6aed69a89f487a86",
+        "type": "simpletime",
+        "z": "8becda4e1ec6a8b9",
+        "name": "Print time",
+        "mydate": true,
+        "myymd": true,
+        "myyear": true,
+        "mymonth": true,
+        "mymonthn": true,
+        "mydom": true,
+        "mydoy": true,
+        "myday": true,
+        "myhourpm": true,
+        "myhour": true,
+        "mytime": true,
+        "mytimes": true,
+        "myminute": true,
+        "myminutes": true,
+        "mysecond": true,
+        "mymillis": true,
+        "myepoch": true,
+        "myrawdate": true,
+        "mypm": true,
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "e6da9605823e71c2"
+            ]
+        ]
+    },
+    {
+        "id": "e6da9605823e71c2",
+        "type": "change",
+        "z": "8becda4e1ec6a8b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "{msg.myrawdate}",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 80,
+        "wires": [
+            [
                 "464516bc4861d681"
             ]
         ]
