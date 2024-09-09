@@ -9639,5 +9639,21 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "9969f05fbe8f14ba",
+        "type": "telegram sender",
+        "z": "8becda4e1ec6a8b9",
+        "name": "",
+        "bot": "",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "50b62ae013fec830"
+            ]
+        ]
     }
 ]
