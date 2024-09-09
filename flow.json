@@ -9446,7 +9446,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 690,
+        "x": 550,
         "y": 200,
         "wires": [
             [
@@ -9818,7 +9818,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 650,
+        "x": 550,
         "y": 320,
         "wires": [
             [
@@ -9993,7 +9993,7 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 650,
+        "x": 550,
         "y": 440,
         "wires": [
             [
