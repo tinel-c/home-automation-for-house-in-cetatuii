@@ -9645,7 +9645,7 @@
         "type": "telegram sender",
         "z": "8becda4e1ec6a8b9",
         "name": "",
-        "bot": "",
+        "bot": "fcd48adffba5ec7c",
         "haserroroutput": false,
         "outputs": 1,
         "x": 390,
