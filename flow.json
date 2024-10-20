@@ -80,6 +80,14 @@
         "env": []
     },
     {
+        "id": "c2ea2e216f69ce5d",
+        "type": "tab",
+        "label": "Cost saving",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "73850d9f081d4c01",
         "type": "mqtt-broker",
         "name": "mqtt local",
@@ -10138,6 +10146,63 @@
         "info": "",
         "x": 220,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "8d1ab87d1fced674",
+        "type": "comment",
+        "z": "c2ea2e216f69ce5d",
+        "name": "Close power at the garden at night",
+        "info": "",
+        "x": 180,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1a22ae948fc59777",
+        "type": "timerswitch",
+        "z": "c2ea2e216f69ce5d",
+        "name": "Stop start garden power",
+        "ontopic": "",
+        "offtopic": "",
+        "onpayload": "ON",
+        "offpayload": "OFF",
+        "disabled": false,
+        "schedules": [
+            {
+                "on_h": "06",
+                "on_m": "00",
+                "on_s": "00",
+                "off_h": "22",
+                "off_m": "00",
+                "off_s": "00",
+                "valid": true
+            }
+        ],
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "40bbaa0c023a2dc0"
+            ]
+        ]
+    },
+    {
+        "id": "40bbaa0c023a2dc0",
+        "type": "mqtt out",
+        "z": "c2ea2e216f69ce5d",
+        "name": "",
+        "topic": "cmnd/sonoffPower320D_afara/Power",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "73850d9f081d4c01",
+        "x": 570,
+        "y": 100,
         "wires": []
     }
 ]
